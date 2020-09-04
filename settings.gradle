@@ -1,3 +1,0 @@
-rootProject.name = 'java-framework-examples'
-include 'spring-boot-examples'
-
