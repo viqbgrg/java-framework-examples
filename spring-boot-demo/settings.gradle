@@ -1,3 +1,5 @@
 rootProject.name = 'spring-boot-demo'
 
 include("using-spring-boot")
+include 'spring-boot-features'
+
