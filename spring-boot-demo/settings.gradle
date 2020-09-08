@@ -1,5 +1,20 @@
 rootProject.name = 'spring-boot-demo'
 
-include("using-spring-boot")
-include 'spring-boot-features'
+//include("using-spring-boot")
+//include 'spring-boot-features'
+
+def isSubproject = { File file ->
+    file.isDirectory() &&
+            !file.name.contains('.git') &&
+            !file.name.contains('.gradle') &&
+            !file.name.contains('.idea') &&
+            !file.name.contains('build') &&
+            !file.name.contains('gradle') &&
+            !file.name.contains('test')
+}
+
+String[] subprojects = rootDir.listFiles().findAll(isSubproject).collect { it.name }
+
+include subprojects
+
 
