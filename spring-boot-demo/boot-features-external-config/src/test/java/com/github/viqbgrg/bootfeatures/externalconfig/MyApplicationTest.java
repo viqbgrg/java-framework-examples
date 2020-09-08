@@ -15,6 +15,6 @@ class MyApplicationTest {
 
     @Test
     void testName() {
-        Assertions.assertThat(name).isEqualTo("hello");
+        Assertions.assertThat(name).isEqualTo("test");
     }
 }
