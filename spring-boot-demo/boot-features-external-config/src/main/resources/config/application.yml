@@ -1,0 +1,3 @@
+my:
+  secret: ${random.value}
+  number: ${random.int}

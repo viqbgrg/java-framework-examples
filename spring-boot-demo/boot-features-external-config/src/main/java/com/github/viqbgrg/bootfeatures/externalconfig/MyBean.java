@@ -12,10 +12,31 @@ public class MyBean {
     @Value("${name}")
     private String name;
 
+    @Value("${my.secret}")
+    private String secret;
+
+    @Value("${my.number}")
+    private String number;
+
+
     @Bean
     public String name() {
         log.info("name=" + this.name);
         return this.name;
+    }
+
+
+    @Bean
+    public String secret() {
+        log.info("secret=" + this.secret);
+        return this.secret;
+    }
+
+
+    @Bean
+    public String number() {
+        log.info("number=" + this.number);
+        return this.number;
     }
 
 }
