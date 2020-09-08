@@ -1,2 +1,6 @@
 name: test
+spring:
+  profiles:
+    active: dev
+devName: defaultName
 
