@@ -1,4 +1,4 @@
-package com.github.viqbgrg.springbootfeatures;
+package com.github.viqbgrg.bootfeatures.springapplication;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;

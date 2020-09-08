@@ -15,6 +15,10 @@ public static void main(String[] args) {
 #### 什么层次结构
 todo
 
+### 1.9 访问应用程序参数
+
+ApplicationArguments 可以获取一些应用程序的参数信息
+
 ## 单元测试
 ```java
 // 在测试的时候, 可能会写多个主的springbootapplication 类 可以通过 classes 指定 spring boot 的 application
