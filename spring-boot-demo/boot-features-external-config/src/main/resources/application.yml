@@ -1,1 +1,8 @@
-name: hello
+name: Phil
+
+---
+
+spring:
+  profiles: generic | dev
+name: Everyone
+
