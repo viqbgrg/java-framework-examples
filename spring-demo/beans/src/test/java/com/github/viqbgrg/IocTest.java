@@ -49,10 +49,25 @@ public class IocTest {
 
     // 用实例工厂方法实例化
     @Test
-    void noStaticFactory() {
+    void noStaticFactoryTest() {
         HelloWorld staticFactory = applicationContext.getBean("noStaticFactory", HelloWorld.class);
         assertThat(staticFactory.say()).isEqualTo("Hello noStaticFactory");
     }
+
     // 确定 Bean 的运行时类型
+    @Test
+    void beanTypeTest() {
+        Class<?> constructor = applicationContext.getType("constructor");
+        System.out.println(constructor.getName());
+        assertThat(constructor.getName()).isEqualTo("com.github.viqbgrg.HelloWorld");
+    }
+
+    // 构造函数参数注入
+    @Test
+    void constructorDI() {
+        Person person = applicationContext.getBean("person", Person.class);
+        assertThat(person.getName()).isEqualTo("xiaoming");
+        assertThat(person.getBook().getBookName()).isEqualTo("从入门到跑路");
+    }
 
 }

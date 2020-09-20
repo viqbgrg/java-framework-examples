@@ -23,4 +23,13 @@
         <property name="name" value="noStaticFactory"/>
     </bean>
 
+    <bean id="book" class="com.github.viqbgrg.Book">
+        <property name="bookName" value="从入门到跑路"/>
+    </bean>
+
+    <bean id="person" class="com.github.viqbgrg.Person">
+        <constructor-arg ref="book"/>
+        <constructor-arg name="name" value="xiaoming"/>
+    </bean>
+
 </beans>
