@@ -1,4 +1,4 @@
-package entity;
+package com.github.viqbgrg.springboot.validator.entity;
 
 import lombok.Data;
 

@@ -14,4 +14,16 @@ public class HelloWorld {
     public void setName(String name) {
         this.name = name;
     }
+
+    static class InnerClass {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }

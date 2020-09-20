@@ -6,5 +6,7 @@
     <bean id="world" class="com.github.viqbgrg.HelloWorld">
         <property name="name" value="World"/>
     </bean>
-
+    <bean id="inner" class="com.github.viqbgrg.HelloWorld$InnerClass">
+        <property name="name" value="haha"/>
+    </bean>
 </beans>
