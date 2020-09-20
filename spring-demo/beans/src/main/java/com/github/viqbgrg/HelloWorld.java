@@ -3,8 +3,15 @@ package com.github.viqbgrg;
 public class HelloWorld {
     private String name;
 
-    public void say() {
-        System.out.println("Hello " + this.name);
+    public HelloWorld() {
+    }
+
+    public HelloWorld(String name) {
+        this.name = name;
+    }
+
+    public String say() {
+        return "Hello " + this.name;
     }
 
     public String getName() {

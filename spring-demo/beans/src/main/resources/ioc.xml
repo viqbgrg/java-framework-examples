@@ -9,4 +9,7 @@
     <bean id="inner" class="com.github.viqbgrg.HelloWorld$InnerClass">
         <property name="name" value="haha"/>
     </bean>
+    <bean id="constructor" class="com.github.viqbgrg.HelloWorld">
+        <constructor-arg name="name" value="haha"/>
+    </bean>
 </beans>
