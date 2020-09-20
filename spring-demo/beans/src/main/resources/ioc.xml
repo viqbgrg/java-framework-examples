@@ -12,4 +12,15 @@
     <bean id="constructor" class="com.github.viqbgrg.HelloWorld">
         <constructor-arg name="name" value="haha"/>
     </bean>
+    <!--    静态工厂方法-->
+    <bean id="staticFactory" class="com.github.viqbgrg.HelloWorld" factory-method="createInstance">
+        <property name="name" value="staticFactory"/>
+    </bean>
+    <bean id="noStaticLoader" class="com.github.viqbgrg.HelloWorld">
+
+    </bean>
+    <bean id="noStaticFactory" factory-bean="noStaticLoader" factory-method="createNoStaticInstance">
+        <property name="name" value="noStaticFactory"/>
+    </bean>
+
 </beans>

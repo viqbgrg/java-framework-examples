@@ -10,6 +10,14 @@ public class HelloWorld {
         this.name = name;
     }
 
+    public static HelloWorld createInstance() {
+        return new HelloWorld();
+    }
+
+    public HelloWorld createNoStaticInstance() {
+        return new HelloWorld();
+    }
+
     public String say() {
         return "Hello " + this.name;
     }

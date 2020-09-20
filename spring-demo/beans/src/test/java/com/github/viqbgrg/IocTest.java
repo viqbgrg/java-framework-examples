@@ -1,10 +1,11 @@
 package com.github.viqbgrg;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  *
@@ -36,10 +37,22 @@ public class IocTest {
     @Test
     void constructorTest() {
         HelloWorld constructor = applicationContext.getBean("constructor", HelloWorld.class);
-        Assertions.assertThat(constructor.say()).isEqualTo("Hello haha");
+        assertThat(constructor.say()).isEqualTo("Hello haha");
     }
+
     // 用静态工厂方法实例化
+    @Test
+    void staticFactoryTest() {
+        HelloWorld staticFactory = applicationContext.getBean("staticFactory", HelloWorld.class);
+        assertThat(staticFactory.say()).isEqualTo("Hello staticFactory");
+    }
+
     // 用实例工厂方法实例化
+    @Test
+    void noStaticFactory() {
+        HelloWorld staticFactory = applicationContext.getBean("noStaticFactory", HelloWorld.class);
+        assertThat(staticFactory.say()).isEqualTo("Hello noStaticFactory");
+    }
     // 确定 Bean 的运行时类型
 
 }
