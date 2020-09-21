@@ -2,10 +2,12 @@ package com.github.viqbgrg;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 /**
  *
@@ -98,6 +100,15 @@ public class IocTest {
 
     private Person getPerson(String beanName) {
         return this.applicationContext.getBean(beanName, Person.class);
+    }
+
+    // 循环依赖
+    @Test
+    void circleException() {
+        assertThatExceptionOfType(BeanCreationException.class).isThrownBy(() -> {
+            new ClassPathXmlApplicationContext("ioc1.xml");
+        });
+
     }
 
 }

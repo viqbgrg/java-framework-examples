@@ -46,4 +46,13 @@
         <constructor-arg name="name" value="name"/>
     </bean>
 
+    <bean id="circleA" class="com.github.viqbgrg.CircleA">
+        <constructor-arg ref="circleB"/>
+
+    </bean>
+
+    <bean id="circleB" class="com.github.viqbgrg.CircleB">
+        <constructor-arg ref="circleA"/>
+    </bean>
+
 </beans>
