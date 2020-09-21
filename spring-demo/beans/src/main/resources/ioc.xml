@@ -32,4 +32,9 @@
         <constructor-arg name="name" value="xiaoming"/>
     </bean>
 
+    <bean id="personByType" class="com.github.viqbgrg.Person">
+        <constructor-arg type="int" value="1"/>
+        <constructor-arg type="java.lang.String" value="type"/>
+    </bean>
+
 </beans>

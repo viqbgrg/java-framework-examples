@@ -64,10 +64,18 @@ public class IocTest {
 
     // 构造函数参数注入
     @Test
-    void constructorDI() {
+    void constructorDITest() {
         Person person = applicationContext.getBean("person", Person.class);
         assertThat(person.getName()).isEqualTo("xiaoming");
         assertThat(person.getBook().getBookName()).isEqualTo("从入门到跑路");
+    }
+
+    // 构造函数-type
+    @Test
+    void typeDITest() {
+        Person personByType = applicationContext.getBean("personByType", Person.class);
+        assertThat(personByType.getName()).isEqualTo("type");
+        assertThat(personByType.getAge()).isEqualTo(1);
     }
 
 }

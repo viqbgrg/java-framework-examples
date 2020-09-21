@@ -9,6 +9,12 @@ import lombok.Data;
 public class Person {
     private String name;
     private Book book;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Person(String name, Book book) {
         this.name = name;
