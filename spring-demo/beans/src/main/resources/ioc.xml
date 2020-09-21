@@ -36,5 +36,9 @@
         <constructor-arg type="int" value="1"/>
         <constructor-arg type="java.lang.String" value="type"/>
     </bean>
+    <bean id="personByIndex" class="com.github.viqbgrg.Person">
+        <constructor-arg index="1" value="1"/>
+        <constructor-arg index="0" value="type"/>
+    </bean>
 
 </beans>

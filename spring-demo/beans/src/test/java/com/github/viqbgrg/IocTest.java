@@ -65,7 +65,7 @@ public class IocTest {
     // 构造函数参数注入
     @Test
     void constructorDITest() {
-        Person person = applicationContext.getBean("person", Person.class);
+        Person person = getPerson("person");
         assertThat(person.getName()).isEqualTo("xiaoming");
         assertThat(person.getBook().getBookName()).isEqualTo("从入门到跑路");
     }
@@ -73,9 +73,22 @@ public class IocTest {
     // 构造函数-type
     @Test
     void typeDITest() {
-        Person personByType = applicationContext.getBean("personByType", Person.class);
+        Person personByType = getPerson("personByType");
         assertThat(personByType.getName()).isEqualTo("type");
         assertThat(personByType.getAge()).isEqualTo(1);
+    }
+
+    // 构造函数-index
+    @Test
+    void indexDIIndex() {
+        Person personByIndex = getPerson("personByIndex");
+        assertThat(personByIndex.getName()).isNotEmpty();
+        assertThat(personByIndex.getAge()).isNotNull();
+    }
+
+
+    private Person getPerson(String beanName) {
+        return this.applicationContext.getBean(beanName, Person.class);
     }
 
 }
