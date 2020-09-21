@@ -80,10 +80,19 @@ public class IocTest {
 
     // 构造函数-index
     @Test
-    void indexDIIndex() {
+    void indexDITest() {
         Person personByIndex = getPerson("personByIndex");
         assertThat(personByIndex.getName()).isNotEmpty();
         assertThat(personByIndex.getAge()).isNotNull();
+    }
+
+    // 构造函数-name
+    // 如果报错尝@ConstructorProperties({"years", "ultimateAnswer"})
+    @Test
+    void nameDITest() {
+        Person personByName = getPerson("personByName");
+        assertThat(personByName.getAge()).isEqualTo(1);
+        assertThat(personByName.getName()).isEqualTo("name");
     }
 
 

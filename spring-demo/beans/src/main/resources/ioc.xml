@@ -41,4 +41,9 @@
         <constructor-arg index="0" value="type"/>
     </bean>
 
+    <bean id="personByName" class="com.github.viqbgrg.Person">
+        <constructor-arg name="age" value="1"/>
+        <constructor-arg name="name" value="name"/>
+    </bean>
+
 </beans>
