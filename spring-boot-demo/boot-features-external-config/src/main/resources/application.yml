@@ -4,3 +4,14 @@ spring:
     active: dev
 devName: defaultName
 
+acme:
+  user:
+    username: xiaoming
+    password: 123456
+
+
+acme-bean:
+  user:
+    username: xiaoming
+    password: 123456
+

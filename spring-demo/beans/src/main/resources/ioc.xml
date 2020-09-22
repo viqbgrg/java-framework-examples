@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="world" class="com.github.viqbgrg.HelloWorld">
+        <property name="name" value="World"/>
+    </bean>
+    <bean id="inner" class="com.github.viqbgrg.HelloWorld$InnerClass">
+        <property name="name" value="haha"/>
+    </bean>
+    <bean id="constructor" class="com.github.viqbgrg.HelloWorld">
+        <constructor-arg name="name" value="haha"/>
+    </bean>
+    <!--    静态工厂方法-->
+    <bean id="staticFactory" class="com.github.viqbgrg.HelloWorld" factory-method="createInstance">
+        <property name="name" value="staticFactory"/>
+    </bean>
+    <bean id="noStaticLoader" class="com.github.viqbgrg.HelloWorld">
+
+    </bean>
+    <bean id="noStaticFactory" factory-bean="noStaticLoader" factory-method="createNoStaticInstance">
+        <property name="name" value="noStaticFactory"/>
+    </bean>
+
+    <bean id="book" class="com.github.viqbgrg.Book">
+        <property name="bookName" value="从入门到跑路"/>
+    </bean>
+
+    <bean id="person" class="com.github.viqbgrg.Person">
+        <constructor-arg ref="book"/>
+        <constructor-arg name="name" value="xiaoming"/>
+    </bean>
+
+    <bean id="personByType" class="com.github.viqbgrg.Person">
+        <constructor-arg type="int" value="1"/>
+        <constructor-arg type="java.lang.String" value="type"/>
+    </bean>
+    <bean id="personByIndex" class="com.github.viqbgrg.Person">
+        <constructor-arg index="1" value="1"/>
+        <constructor-arg index="0" value="type"/>
+    </bean>
+
+</beans>
