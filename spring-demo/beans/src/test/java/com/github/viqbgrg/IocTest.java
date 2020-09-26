@@ -1,5 +1,6 @@
 package com.github.viqbgrg;
 
+import com.github.viqbgrg.idref.Bean2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanCreationException;
@@ -108,7 +109,19 @@ public class IocTest {
         assertThatExceptionOfType(BeanCreationException.class).isThrownBy(() -> {
             new ClassPathXmlApplicationContext("ioc1.xml");
         });
+    }
 
+    // 尝试使用setter解决循环依赖
+    @Test
+    void circleBySetter() {
+        CircleB circleB = applicationContext.getBean("circleB", CircleB.class);
+        assertThat(circleB.getCircleA()).isNotNull();
+    }
+
+    @Test
+    void idrefTest() {
+        Bean2 bean2 = applicationContext.getBean("bean2", Bean2.class);
+        bean2.test();
     }
 
 }

@@ -47,12 +47,20 @@
     </bean>
 
     <bean id="circleA" class="com.github.viqbgrg.CircleA">
-        <constructor-arg ref="circleB"/>
 
     </bean>
 
     <bean id="circleB" class="com.github.viqbgrg.CircleB">
-        <constructor-arg ref="circleA"/>
+
     </bean>
 
+    <bean id="bean1" class="com.github.viqbgrg.idref.Bean1">
+
+    </bean>
+
+    <bean id="bean2" class="com.github.viqbgrg.idref.Bean2">
+        <property name="beanName">
+            <idref bean="bean1"/>
+        </property>
+    </bean>
 </beans>

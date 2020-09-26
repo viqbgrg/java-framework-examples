@@ -12,4 +12,11 @@ public class CircleB {
     public CircleB(CircleA circleA) {
         this.circleA = circleA;
     }
+
+    @Override
+    public String toString() {
+        return "CircleB{" +
+                "circleA=" + circleA +
+                '}';
+    }
 }
