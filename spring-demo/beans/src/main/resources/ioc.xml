@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="world" class="com.github.viqbgrg.HelloWorld">
@@ -30,6 +30,13 @@
     <bean id="person" class="com.github.viqbgrg.Person">
         <constructor-arg ref="book"/>
         <constructor-arg name="name" value="xiaoming"/>
+    </bean>
+
+    <bean id="personInnerBook" class="com.github.viqbgrg.Person">
+        <property name="book">
+            <bean class="com.github.viqbgrg.Book" p:bookName="mybook">
+            </bean>
+        </property>
     </bean>
 
     <bean id="personByType" class="com.github.viqbgrg.Person">
