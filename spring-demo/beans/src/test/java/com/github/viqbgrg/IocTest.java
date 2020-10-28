@@ -124,4 +124,12 @@ public class IocTest {
         bean2.test();
     }
 
+    // 在bean内部定义一个bean
+    @Test
+    void personInnerBookTest() {
+        Person personInnerBook = applicationContext.getBean("personInnerBook", Person.class);
+        assertThat(personInnerBook.getBook().getBookName()).isEqualTo("mybook");
+
+    }
+
 }
