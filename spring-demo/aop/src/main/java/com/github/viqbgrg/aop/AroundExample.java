@@ -15,6 +15,7 @@ public class AroundExample {
     public Object jian(ProceedingJoinPoint pjp) throws Throwable {
         log.info("减法开始执行");
         Object proceed = pjp.proceed();
+        log.info("方法参数:" + pjp.getArgs());
         log.info("减法执行结束");
         return proceed;
     }
