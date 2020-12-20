@@ -1,0 +1,11 @@
+plugins {
+    id 'war'
+}
+dependencies {
+    compile group: 'org.springframework', name: 'spring-webmvc'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api'
+}
+
+war {
+    enabled=true
+}
