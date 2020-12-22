@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HelloWorldTest {
     Logger logger = LoggerFactory.getLogger("chapters.introduction.HelloWorld2");
+
     @Test
     void helloWorld() {
 
@@ -24,7 +25,7 @@ class HelloWorldTest {
      * 占位符
      */
     @Test
-    void zhan(){
+    void zhan() {
         logger.info("我是{}", "占位符");
     }
 }

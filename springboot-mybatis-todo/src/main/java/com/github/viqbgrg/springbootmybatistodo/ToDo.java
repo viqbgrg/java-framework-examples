@@ -15,6 +15,7 @@ public class ToDo {
         this.text = text;
         this.completed = completed;
     }
+
     private long id;
     private String text;
     private boolean completed;

@@ -27,8 +27,8 @@ public class ToDoControllerTest {
     @Test
     void getAllToDos() throws Exception {
         ArrayList<ToDo> toDoList = new ArrayList<>();
-        toDoList.add(new ToDo(1L,"Eat thrice",true));
-        toDoList.add(new ToDo(2L,"Sleep Twice",true));
+        toDoList.add(new ToDo(1L, "Eat thrice", true));
+        toDoList.add(new ToDo(2L, "Sleep Twice", true));
         when(toDoService.findAll()).thenReturn(toDoList);
         mockMvc.perform(MockMvcRequestBuilders.get("/todos")
                 .contentType(MediaType.APPLICATION_JSON)

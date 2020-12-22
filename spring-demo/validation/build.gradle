@@ -1,4 +1,3 @@
-
 dependencies {
     implementation("org.hibernate.validator:hibernate-validator:6.1.6.Final")
 }

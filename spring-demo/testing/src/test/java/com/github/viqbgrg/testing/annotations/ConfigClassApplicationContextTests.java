@@ -8,10 +8,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = TestConfig.class)
 class ConfigClassApplicationContextTests {
-    @Autowired Person person;
+    @Autowired
+    Person person;
     @Autowired
     ApplicationContext applicationContext;
 
