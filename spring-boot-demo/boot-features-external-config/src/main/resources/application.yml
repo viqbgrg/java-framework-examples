@@ -14,7 +14,3 @@ acme-bean:
   user:
     username: xiaoming
     password: 123456
-
-testbean:
-  name: xiaoming
-  age: 12
