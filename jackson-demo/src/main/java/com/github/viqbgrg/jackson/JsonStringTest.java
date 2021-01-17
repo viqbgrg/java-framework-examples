@@ -9,10 +9,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * 测试json Object 创建生成字符串
+ *
  * @author viqbg
  */
 @Slf4j
-public class JSONStringTest {
+public class JsonStringTest {
 
     private static ObjectMapper objectMapper;
 
