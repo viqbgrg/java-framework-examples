@@ -1,0 +1,1 @@
+insert into user(id,name,income) values (1,'xiaoming','[1000,2000,1500]')
