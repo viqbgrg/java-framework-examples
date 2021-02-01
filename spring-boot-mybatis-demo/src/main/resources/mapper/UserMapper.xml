@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sample.mybatis.mapper.HotelMapper">
-    <select id="selectByCityId" resultType="User">
+<mapper namespace="com.github.viqbgrg.springbootmybatisdemo.mapper.UserMapper">
+    <select id="selectAll" resultType="User">
         select id, name, incom from user
     </select>
 </mapper>
