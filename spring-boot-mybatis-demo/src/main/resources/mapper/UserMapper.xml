@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.viqbgrg.springbootmybatisdemo.mapper.UserMapper">
     <select id="selectAll" resultType="User">
-        select id, name, incom from user
+        select id, name, income from user
     </select>
 </mapper>

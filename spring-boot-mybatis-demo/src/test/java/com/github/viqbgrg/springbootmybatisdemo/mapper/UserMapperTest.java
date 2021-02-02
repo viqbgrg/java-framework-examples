@@ -1,5 +1,6 @@
 package com.github.viqbgrg.springbootmybatisdemo.mapper;
 import com.github.viqbgrg.springbootmybatisdemo.domain.User;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class UserMapperTest {
     @Test
     void testJsonArrayToList() {
         List<User> users = userMapper.selectAll();
-        System.out.println(users);
+        User user = users.get(0);
+        Assertions.assertThat(user.getIncome()).isNotEmpty();
     }
 }
