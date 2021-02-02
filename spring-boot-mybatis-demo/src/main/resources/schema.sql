@@ -1,8 +1,9 @@
 drop table if exists user;
 
-create table user(
-    id int AUTO_INCREMENT,
-    name  varchar,
-    income json COMMENT '今年每个月的收入',
-    PRIMARY KEY (id)
+CREATE TABLE `user` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` varchar(11) DEFAULT NULL,
+    `income` text DEFAULT NULL,
+    `car` text DEFAULT NULL,
+    PRIMARY KEY (`id`)
 )

@@ -1,6 +1,8 @@
 package com.github.viqbgrg.springbootmybatisdemo.typehandler;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.viqbgrg.springbootmybatisdemo.domain.Car;
 import lombok.SneakyThrows;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -12,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-@MappedTypes({List.class})
+@MappedTypes({List.class,int[].class, Car.class})
 public class JsonTypeHandler<T> extends BaseTypeHandler<T> {
 
     private Class<T> type;
@@ -36,24 +38,40 @@ public class JsonTypeHandler<T> extends BaseTypeHandler<T> {
     @Override
     public T getNullableResult(ResultSet rs, String columnName) throws SQLException {
         String value = rs.getString(columnName);
-        if (value != null)
-            return objectMapper.convertValue(value, type);
+        if (value != null) {
+            try {
+                System.out.println(value);
+                return objectMapper.readValue(value, type);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 
     @Override
     public T getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
         String value = rs.getString(columnIndex);
-        if (value != null)
-            return objectMapper.convertValue(value, type);
+        if (value != null) {
+            try {
+                return objectMapper.readValue(value, type);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 
     @Override
     public T getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
         String value = cs.getString(columnIndex);
-        if (value != null)
-            return objectMapper.convertValue(value, type);
+        if (value != null) {
+            try {
+                return objectMapper.readValue(value, type);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 }

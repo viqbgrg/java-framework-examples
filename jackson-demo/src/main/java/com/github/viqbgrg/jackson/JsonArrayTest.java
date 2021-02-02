@@ -34,7 +34,8 @@ public class JsonArrayTest {
         };
 //        List<Integer> list = objectMapper.convertValue(listString, typeReference);
         CollectionType listType = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, Integer.class);
-        List<Integer> list = objectMapper.readValue(listString, listType);
+        List<Integer> list = objectMapper.readValue(listString, List.class);
+//        List<Integer> list = objectMapper.readValue(listString, listType);
         System.out.println(list);
     }
 }

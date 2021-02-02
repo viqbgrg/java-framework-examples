@@ -6,4 +6,8 @@
     <select id="selectAll" resultType="User">
         select id, name, income from user
     </select>
+    <insert id="insertUser">
+        insert into user (id,name,income,car)
+        values (#{id},#{name},#{income},#{car})
+    </insert>
 </mapper>
