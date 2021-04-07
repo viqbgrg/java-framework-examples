@@ -5,14 +5,19 @@ import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.async.DeferredResult;
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
+import springfox.documentation.RequestHandler;
 import springfox.documentation.annotations.ApiIgnore;
 import springfox.documentation.builders.*;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.schema.ModelSpecification;
 import springfox.documentation.schema.ScalarType;
 import springfox.documentation.schema.WildcardType;
 import springfox.documentation.service.*;
@@ -35,43 +40,40 @@ import static java.util.Collections.singletonList;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
+/**
+ * @author hhj
+ */
 @Configuration
 public class MySwaggerConfig {
 
 
-    @Autowired
-    private TypeResolver typeResolver;
+    private final TypeResolver typeResolver;
+
+    public MySwaggerConfig(TypeResolver typeResolver) {
+        this.typeResolver = typeResolver;
+    }
 
     @Bean
     public Docket petApi() {
-        return new Docket(DocumentationType.OAS_30)
+
+        HashSet<String> mediaType = new HashSet<>(Arrays.asList(MediaType.APPLICATION_JSON_VALUE));
+        return new Docket(DocumentationType.SWAGGER_2)
+                .directModelSubstitute(LocalDate.class, String.class)
                 .useDefaultResponseMessages(false)
-//                .additionalModels(typeResolver.resolve(ResponseEntity.class))
-                .produces(new HashSet<>(
-                        Arrays.asList(
-                                "application/json")))
-//                .alternateTypeRules(newRule(
-//                        LocalDate.class,
-//                        String.class))
-                .select()
-//                .paths(PathSelectors.regex(".*/features/.*"))
-                .build();
-//        HashSet<String> medisType = new HashSet<>(Arrays.asList("application/json"));
-//        return new Docket(DocumentationType.OAS_30)
-//                .select()
-//                .apis(RequestHandlerSelectors.any())
-//                .paths(PathSelectors.any())
-//                .build()
-//                .pathMapping("/")
-//                .directModelSubstitute(LocalDate.class, String.class)
-////                .genericModelSubstitutes(ResponseEntity.class)
-////                .alternateTypeRules(
-////                        newRule(typeResolver.resolve(DeferredResult.class,
-////                                typeResolver.resolve(ResponseEntity.class, WildcardType.class)),
-////                                typeResolver.resolve(WildcardType.class)))
-//                .useDefaultResponseMessages(false)
-//                .produces(medisType)
-//                .consumes(medisType);
+                .additionalModels(typeResolver.resolve(ResponceVo.class))
+                .select().apis(RequestHandlerSelectors.any()).build()
+                .produces(mediaType)
+                .consumes(mediaType)
+                .globalRequestParameters(paramConfig());
+    }
+
+
+    private List<RequestParameter> paramConfig() {
+        ArrayList<RequestParameter> parameters = new ArrayList<>();
+        parameters.add(new RequestParameterBuilder().name("token").in(ParameterType.HEADER)
+                .description("用户的token")
+                .required(true).build());
+        return parameters;
     }
 
 
