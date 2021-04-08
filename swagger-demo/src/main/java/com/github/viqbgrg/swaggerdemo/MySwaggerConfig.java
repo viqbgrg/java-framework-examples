@@ -1,44 +1,22 @@
 package com.github.viqbgrg.swaggerdemo;
 
 import com.fasterxml.classmate.TypeResolver;
-import io.swagger.models.auth.In;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.async.DeferredResult;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
-import springfox.documentation.RequestHandler;
-import springfox.documentation.annotations.ApiIgnore;
-import springfox.documentation.builders.*;
-import springfox.documentation.schema.ModelRef;
-import springfox.documentation.schema.ModelSpecification;
-import springfox.documentation.schema.ScalarType;
-import springfox.documentation.schema.WildcardType;
-import springfox.documentation.service.*;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.builders.RequestParameterBuilder;
+import springfox.documentation.service.ParameterType;
+import springfox.documentation.service.RequestParameter;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URISyntaxException;
 import java.time.LocalDate;
-import java.time.temporal.Temporal;
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import static java.util.Collections.singletonList;
-import static springfox.documentation.builders.PathSelectors.regex;
-import static springfox.documentation.schema.AlternateTypeRules.newRule;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * @author hhj
@@ -57,10 +35,13 @@ public class MySwaggerConfig {
     public Docket petApi() {
 
         HashSet<String> mediaType = new HashSet<>(Arrays.asList(MediaType.APPLICATION_JSON_VALUE));
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .directModelSubstitute(LocalDate.class, String.class)
                 .useDefaultResponseMessages(false)
-                .additionalModels(typeResolver.resolve(ResponceVo.class))
+//                .genericModelSubstitutes(ResponseEntity.class)
+                // 可以直接显示包装里面的实体类
+                .genericModelSubstitutes(Result.class)
+//                .additionalModels(typeResolver.resolve(ResponseEntity.class))
                 .select().apis(RequestHandlerSelectors.any()).build()
                 .produces(mediaType)
                 .consumes(mediaType)
