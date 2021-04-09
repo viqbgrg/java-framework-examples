@@ -13,9 +13,11 @@
                 <property name="username" value=""/>
                 <property name="password" value=""/>
             </dataSource>
+
         </environment>
     </environments>
+
     <mappers>
-        <!--        <mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <mapper resource="src/main/resources/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>
