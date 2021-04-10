@@ -1,5 +1,7 @@
 package com.github.viqbgrg.mybatisdemo.mapper;
 
-public interface UserMapper {
+import com.github.viqbgrg.mybatisdemo.entity.User;
 
+public interface UserMapper {
+    User selectUser(long id);
 }
