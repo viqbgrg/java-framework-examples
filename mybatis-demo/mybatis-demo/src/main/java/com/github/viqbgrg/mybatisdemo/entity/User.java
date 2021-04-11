@@ -13,6 +13,7 @@ public class User {
     private String username;
     private String password;
     private int locked;
+    private Sex sex;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 }

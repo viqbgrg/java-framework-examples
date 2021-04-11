@@ -5,6 +5,7 @@
 <configuration>
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="defaultEnumTypeHandler" value="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     </settings>
     <typeAliases>
         <typeAlias alias="User" type="com.github.viqbgrg.mybatisdemo.entity.User"/>

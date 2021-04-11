@@ -1,6 +1,7 @@
 package com.github.viqbgrg.mybatisdemo.mapper;
 
 import com.github.viqbgrg.mybatisdemo.MybatisConfig;
+import com.github.viqbgrg.mybatisdemo.entity.Sex;
 import com.github.viqbgrg.mybatisdemo.entity.User;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -24,9 +25,10 @@ class MybatisMapperTest {
         try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.selectUser(1);
-            assertThat(user.getUpdateAt()).isNotNull();
-            assertThat(user.getUpdateAt()).isNotNull();
             assertThat(user).isNotNull();
+            assertThat(user.getUpdateAt()).isNotNull();
+            assertThat(user.getUpdateAt()).isNotNull();
+            assertThat(user.getSex()).isEqualTo(Sex.MAN);
         }
     }
 
