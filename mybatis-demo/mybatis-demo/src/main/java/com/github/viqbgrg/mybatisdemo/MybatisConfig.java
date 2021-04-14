@@ -2,6 +2,7 @@ package com.github.viqbgrg.mybatisdemo;
 
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -22,7 +23,7 @@ public class MybatisConfig {
     public static PooledDataSource createPooledDataSource() {
         PooledDataSource ds = new PooledDataSource();
         ds.setDriver("org.h2.Driver");
-        ds.setUrl("jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'src/main/resources/schema.sql';RUNSCRIPT FROM 'src/main/resources/populate.sql'");
+        ds.setUrl("jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'src/main/resources/schema.sql'\\;RUNSCRIPT FROM 'src/main/resources/data.sql'");
         ds.setUsername("");
         ds.setPassword("");
         return ds;
