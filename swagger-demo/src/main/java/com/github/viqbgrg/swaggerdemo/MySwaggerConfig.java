@@ -45,7 +45,21 @@ public class MySwaggerConfig {
                 .select().apis(RequestHandlerSelectors.any()).build()
                 .produces(mediaType)
                 .consumes(mediaType)
-                .globalRequestParameters(paramConfig());
+//                .globalResponses(HttpMethod.POST,
+//                        singletonList(new ResponseBuilder()
+//                                .code("200")
+//                                .description("500 message")
+//                                .representation(MediaType.TEXT_XML)
+//                                .apply(r ->
+//                                        r.model(m ->
+//                                                m.referenceModel(ref ->
+//                                                        ref.key(k ->
+//                                                                k.qualifiedModelName(q ->
+//                                                                        q.namespace("some:namespace")
+//                                                                                .name("ERROR"))))))
+//                                .build()))
+//                .globalRequestParameters(paramConfig())
+                ;
     }
 
 

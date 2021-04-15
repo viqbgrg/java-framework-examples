@@ -3,11 +3,14 @@ package com.github.viqbgrg.swaggerdemo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
@@ -49,5 +52,12 @@ public class HelloWordController {
     public Result<ResponceVo> test3(){
         ResponceVo responceVo = new ResponceVo();
         return new Result<>(responceVo);
+    }
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "文件1", dataType = "__file", paramType="form", required = true)
+    })
+    @PostMapping(value = "/file")
+    public ResponseEntity<Void> file(@RequestPart(value = "文件", required = true) MultipartFile file) {
+        return ResponseEntity.ok().build();
     }
 }
