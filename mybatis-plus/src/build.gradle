@@ -1,6 +1,0 @@
-sourceSets {
-    // 使用创建工具
-    if(project.gradle.startParameter.taskNames.contains("MysqlGenerator.main()")) {
-        main.java.srcDirs = ['src/main/java/com/viqbgrg/mybatisplus/mybatis/generator']
-    }
-}

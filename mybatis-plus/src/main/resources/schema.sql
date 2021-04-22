@@ -26,3 +26,11 @@ CREATE TABLE sequence_id
     PRIMARY KEY (id)
 );
 CREATE SEQUENCE key_generator_model_seq START WITH 1 INCREMENT BY 1;
+
+
+DROP TABLE IF EXISTS generator_id;
+CREATE TABLE generator_id
+(
+    id BIGINT(20) NOT NULL COMMENT '主键ID',
+    PRIMARY KEY (id)
+);
