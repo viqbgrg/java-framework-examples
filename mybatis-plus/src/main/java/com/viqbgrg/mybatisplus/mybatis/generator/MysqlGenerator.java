@@ -66,7 +66,7 @@ public class MysqlGenerator {
                 .author("bing").openDir(false).build();
         mpg.global(gc);
         // 包配置
-        PackageConfig pc = new PackageConfig.Builder().parent("com.github.viqbgrg.springbootoverseer").build();
+        PackageConfig pc = new PackageConfig.Builder().parent("com.viqbgrg.mybatisplus").build();
         mpg.packageInfo(pc);
 
         // 自定义配置
@@ -88,8 +88,6 @@ public class MysqlGenerator {
                 .entityBuilder().enableLombok().naming(NamingStrategy.underline_to_camel).columnNaming(NamingStrategy.underline_to_camel)
                 .idType(IdType.INPUT).controllerBuilder()
                 .serviceBuilder()
-                .superServiceImplClass("com.github.viqbgrg.springbootoverseer.service.BaseServiceImpl")
-                .superServiceClass("com.github.viqbgrg.springbootoverseer.service.BaseService")
                 .build();
 
         mpg.strategy(strategy);
