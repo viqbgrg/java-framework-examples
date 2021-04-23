@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.viqbgrg.mybatisplus.mapper.StudentMapper">
+    <resultMap id="student_i" type="com.viqbgrg.mybatisplus.entity.Student">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <resultMap id="student_book" type="com.viqbgrg.mybatisplus.entity.Student" extends="student_i">
+        <collection property="books" column="id" select="com.viqbgrg.mybatisplus.mapper.BookMapper.getBooks"/>
+    </resultMap>
+
+    <select id="getStudentBook" resultMap="student_book">
+        select id, name
+        from student
+        where id = #{id}
+    </select>
+</mapper>

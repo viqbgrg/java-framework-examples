@@ -34,3 +34,24 @@ CREATE TABLE generator_id
     id BIGINT(20) NOT NULL COMMENT '主键ID',
     PRIMARY KEY (id)
 );
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE student
+(
+    id   BIGINT(20) NOT NULL COMMENT '主键ID',
+    name varchar(20) comment '姓名',
+    PRIMARY KEY (id)
+);
+DROP TABLE IF EXISTS book;
+CREATE TABLE book
+(
+    id   BIGINT(20)  NOT NULL COMMENT '主键ID',
+    name varchar(20) not null comment '书名',
+    PRIMARY KEY (id)
+);
+DROP TABLE IF EXISTS student_book;
+CREATE TABLE student_book
+(
+    student_id BIGINT(20) NOT NULL COMMENT '学生ID',
+    book_id    BIGINT(20) not null comment '书id'
+);
