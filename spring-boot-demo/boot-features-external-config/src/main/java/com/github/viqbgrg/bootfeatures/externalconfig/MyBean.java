@@ -18,6 +18,11 @@ public class MyBean {
     @Value("${my.number}")
     private String number;
 
+    @Value("${test-string.value}")
+    private String testString;
+
+    @Value("${test-default.value:world}")
+    private String defaultString;
 
     @Bean
     public String name() {
@@ -37,6 +42,16 @@ public class MyBean {
     public String number() {
         log.info("number=" + this.number);
         return this.number;
+    }
+
+    @Bean
+    public String testString() {
+        return this.testString;
+    }
+
+    @Bean
+    public String defaultString() {
+        return this.defaultString;
     }
 
 }

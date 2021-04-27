@@ -14,3 +14,6 @@ acme-bean:
   user:
     username: xiaoming
     password: 123456
+
+test-string:
+  value: hello
