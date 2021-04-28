@@ -26,8 +26,6 @@ class MybatisMapperTest {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             User user = mapper.selectUser(1);
             assertThat(user).isNotNull();
-            assertThat(user.getUpdateAt()).isNotNull();
-            assertThat(user.getUpdateAt()).isNotNull();
         }
     }
 
