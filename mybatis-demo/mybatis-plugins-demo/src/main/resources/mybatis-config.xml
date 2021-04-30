@@ -13,7 +13,6 @@
     </typeAliases>
     <plugins>
         <plugin interceptor="com.github.viqbgrg.plugins.mybatis.ExamplePlugin">
-            <property name="someProperty" value="100"/>
         </plugin>
     </plugins>
     <environments default="development">
