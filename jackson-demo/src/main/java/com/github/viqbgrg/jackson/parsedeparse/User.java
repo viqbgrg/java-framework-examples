@@ -15,4 +15,6 @@ public class User {
     private String username;
     @JsonDeserialize(converter = MyConverter.class)
     private Integer roleId;
+    @JsonDeserialize(using = MyConverter1.class)
+    private Integer sex;
 }

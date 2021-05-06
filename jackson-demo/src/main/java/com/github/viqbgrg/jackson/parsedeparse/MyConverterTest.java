@@ -12,6 +12,7 @@ class MyConverterTest extends JsonBaseTest {
     void convert() throws JsonProcessingException {
         String jsonString = "{\n" +
                 "    \"username\": \"xiaoming\",\n" +
+                "    \"sex\": \"man\",\n" +
                 "    \"roleId\": \"admin\"\n" +
                 "}";
         User user = objectMapper.readValue(jsonString, User.class);
