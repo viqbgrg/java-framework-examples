@@ -32,10 +32,8 @@ public class JsonArrayTest {
         String listString = "[1,100]";
         TypeReference<List<Integer>> typeReference = new TypeReference<>() {
         };
-//        List<Integer> list = objectMapper.convertValue(listString, typeReference);
         CollectionType listType = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, Integer.class);
-        List<Integer> list = objectMapper.readValue(listString, List.class);
-//        List<Integer> list = objectMapper.readValue(listString, listType);
+        List list = objectMapper.readValue(listString, List.class);
         System.out.println(list);
     }
 }
