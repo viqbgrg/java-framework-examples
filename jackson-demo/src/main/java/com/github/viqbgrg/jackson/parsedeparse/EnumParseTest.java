@@ -6,6 +6,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.viqbgrg.jackson.JsonBaseTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * @author hhj
  */
@@ -18,6 +22,13 @@ public class EnumParseTest extends JsonBaseTest {
         System.out.println(s);
         String s1 = objectMapper.writeValueAsString(Animal.PIG);
         System.out.println(s1);
+    }
+
+    @Test
+    void parseEnumMapTest() throws JsonProcessingException {
+        Map<Animal, String> collect = Arrays.stream(Animal.values()).collect(Collectors.toMap(k -> k, Animal::getName));
+        String s = objectMapper.writeValueAsString(collect);
+        System.out.println(s);
     }
     @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     public static enum Animal{
