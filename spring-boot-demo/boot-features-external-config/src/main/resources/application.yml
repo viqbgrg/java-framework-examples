@@ -14,6 +14,16 @@ acme-bean:
   user:
     username: xiaoming
     password: 123456
+  user1:
+    username: zhangsan
+    password: 654321
 
 test-string:
   value: hello
+
+value:
+  name: haha
+  size: 18
+value1:
+  name: hehe
+  size: 20
