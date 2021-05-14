@@ -1,0 +1,18 @@
+
+
+repositories {
+	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.baomidou:mybatis-plus-generator:3.5.0.1-SNAPSHOT'
+}
+
+
+sourceSets {
+	// 使用创建工具
+	if(project.gradle.startParameter.taskNames.contains("MysqlGenerator.main()")) {
+		main.java.srcDirs = ['src/main/java/com/github/viqbgrg/mybatisplus/generator/mybatis']
+	}
+}
