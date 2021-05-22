@@ -9,7 +9,7 @@
         <setting name="defaultEnumTypeHandler" value="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     </settings>
     <typeAliases>
-        <typeAlias alias="User" type="com.github.viqbgrg.plugins.entity.User"/>
+        <typeAlias alias="User" type="com.github.viqbgrg.plugins.entity.UserBook"/>
     </typeAliases>
     <plugins>
         <plugin interceptor="com.github.viqbgrg.plugins.mybatis.ExamplePlugin">

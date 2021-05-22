@@ -1,7 +1,7 @@
 package com.github.viqbgrg.mybatisdemo.mapper;
 
 import com.github.viqbgrg.plugins.MybatisConfig;
-import com.github.viqbgrg.plugins.entity.User;
+import com.github.viqbgrg.plugins.entity.UserBook;
 import com.github.viqbgrg.plugins.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -24,8 +24,8 @@ class MybatisMapperTest {
     void selectUser() {
         try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-            User user = mapper.selectUser(1);
-            assertThat(user).isNotNull();
+            UserBook userBook = mapper.selectUser(1);
+            assertThat(userBook).isNotNull();
         }
     }
 

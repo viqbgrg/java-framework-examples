@@ -1,0 +1,9 @@
+plugins {
+    id "java-test-fixtures"
+}
+
+dependencies {
+    testFixturesApi  'org.mybatis:mybatis:3.5.6'
+    testFixturesApi  'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testFixturesApi  'org.assertj:assertj-core:3.19.0'
+}

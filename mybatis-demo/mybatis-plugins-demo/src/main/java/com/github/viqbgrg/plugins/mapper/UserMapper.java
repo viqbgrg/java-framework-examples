@@ -1,7 +1,7 @@
 package com.github.viqbgrg.plugins.mapper;
 
-import com.github.viqbgrg.plugins.entity.User;
+import com.github.viqbgrg.plugins.entity.UserBook;
 
 public interface UserMapper {
-    User selectUser(long id);
+    UserBook selectUser(long id);
 }

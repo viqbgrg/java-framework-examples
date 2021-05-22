@@ -27,6 +27,10 @@ subprojects {
         testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
         testImplementation 'org.assertj:assertj-core:3.19.0'
         implementation 'ch.qos.logback:logback-classic:1.3.0-alpha5'
+        if (project.name != "mybatis-base") {
+            implementation project(':mybatis-base')
+            testImplementation(testFixtures(project(":mybatis-base")))
+        }
     }
 }
 dependencies {
