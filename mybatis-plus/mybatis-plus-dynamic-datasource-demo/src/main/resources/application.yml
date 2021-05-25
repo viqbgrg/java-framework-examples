@@ -1,0 +1,17 @@
+spring:
+  #数据库信息配置
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'mybatis-plus-dynamic-datasource-demo/src/main/resources/schema.sql'\;RUNSCRIPT FROM 'mybatis-plus-dynamic-datasource-demo/src/main/resources/data.sql'
+          username:
+          password:
+        #          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+        slave:
+          url: jdbc:h2:mem:test;ACCESS_MODE_DATA=r
+          username:
+          password:
+#          driver-class-name: com.mysql.cj.jdbc.Driver
