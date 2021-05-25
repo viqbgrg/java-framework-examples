@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.viqbgrg.plugins.mapper.UserMapper">
-    <select id="selectUser" resultType="User">
+    <select id="selectUser" resultType="UserBook">
         select *
-        from user
+        from userBook
         where id = #{id}
     </select>
 </mapper>
