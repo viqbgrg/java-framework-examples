@@ -6,12 +6,22 @@ spring:
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
       datasource:
         master:
-          url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'mybatis-plus-dynamic-datasource-demo/src/main/resources/schema.sql'\;RUNSCRIPT FROM 'mybatis-plus-dynamic-datasource-demo/src/main/resources/data.sql'
+          url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/schema1.sql'\;RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/data1.sql'
           username:
           password:
-        #          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+          driver-class-name: org.h2.Driver
         slave:
-          url: jdbc:h2:mem:test;ACCESS_MODE_DATA=r
+          #          url: jdbc:h2:mem:test1;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/schema1.sql'\;RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/data1.sql';ACCESS_MODE_DATA=r
+          url: jdbc:h2:mem:test11;MODE=MySQL;ACCESS_MODE_DATA=r
           username:
           password:
-#          driver-class-name: com.mysql.cj.jdbc.Driver
+          driver-class-name: org.h2.Driver
+
+#mybatis配置信息
+mybatis-plus:
+  #对应mapper路劲
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    com:
+      baomidou: debug
