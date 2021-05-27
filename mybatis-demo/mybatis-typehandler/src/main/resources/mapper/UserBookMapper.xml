@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.viqbgrg.mybatis.sqlmap.mapper.UserBookMapper">
+    <resultMap id="userBook" type="UserBook">
+        <id property="id" column="id"/>
+        <collection property="book" ofType="com.github.viqbgrg.mybatis.sqlmap.entity.UserBook$Book">
+            <result property="name" column="name"/>
+            <result property="tag" column="tag"/>
+        </collection>
+    </resultMap>
+    <select id="selectAll" resultMap="userBook">
+        select id, name, tag
+        from user_book
+    </select>
+</mapper>
