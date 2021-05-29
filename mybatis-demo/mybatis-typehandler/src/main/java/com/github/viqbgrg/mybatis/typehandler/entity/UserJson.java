@@ -11,5 +11,5 @@ import java.util.List;
 public class UserJson {
     private int id;
     private String name;
-//    private List<String> book_names;
+    private String[] bookNames;
 }

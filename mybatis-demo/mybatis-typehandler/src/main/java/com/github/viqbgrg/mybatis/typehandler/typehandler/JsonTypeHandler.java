@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @author hhj
  */
-//@MappedTypes({List.class})
+@MappedTypes({String[].class})
 public class JsonTypeHandler<T> extends BaseTypeHandler<T> {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();

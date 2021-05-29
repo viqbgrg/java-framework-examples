@@ -6,13 +6,14 @@
     <resultMap id="userJson" type="UserJson">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-<!--        <result property="book_names" column="book_names" typeHandler="com.github.viqbgrg.mybatis.typehandler.typehandler.JsonTypeHandler"/>-->
+<!--        <result property="book_names" column="book_names" javaType="" typeHandler="com.github.viqbgrg.mybatis.typehandler.typehandler.JsonTypeHandler"/>-->
+        <result property="bookNames" column="book_names"/>
     </resultMap>
     <insert id="insert">
-        insert into user_json (id, name) values (#{id}, #{name})
+        insert into user_json (id, name, book_names) values (#{id}, #{name}, #{bookNames})
     </insert>
     <select id="selectAll" resultMap="userJson">
-        select id, name
+        select id, name,book_names
         from user_json
     </select>
 </mapper>
