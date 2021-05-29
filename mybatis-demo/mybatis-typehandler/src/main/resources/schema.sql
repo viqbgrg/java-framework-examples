@@ -1,8 +1,8 @@
-DROP TABLE IF EXISTS user_book;
-CREATE TABLE user_book
+DROP TABLE IF EXISTS user_json;
+CREATE TABLE user_json
 (
     id   BIGINT(20)  NOT NULL AUTO_INCREMENT COMMENT '主键ID',
     name VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
-    tag  VARCHAR(20) NOT NULL COMMENT '用户id',
-    PRIMARY KEY (id, name)
+--     book_names  json NOT NULL COMMENT '用户id',
+    PRIMARY KEY (id)
 );

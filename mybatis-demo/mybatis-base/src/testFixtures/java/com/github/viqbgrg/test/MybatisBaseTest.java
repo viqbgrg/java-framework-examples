@@ -7,8 +7,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
 
-public abstract class MybatisBaseTest {
+public abstract class MybatisBaseTest<T> {
     protected static SqlSession sqlSession;
 
     @BeforeAll
@@ -16,6 +17,11 @@ public abstract class MybatisBaseTest {
         MybatisBase mybatisBase = new MybatisBase();
         SqlSessionFactory sqlSessionFactory = mybatisBase.createSqlSessionFactory();
         sqlSession = sqlSessionFactory.openSession();
+    }
+
+    protected T getMapper() {
+        Class<T> actualTypeArgument = (Class<T>)((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return sqlSession.getMapper(actualTypeArgument);
     }
 
 }

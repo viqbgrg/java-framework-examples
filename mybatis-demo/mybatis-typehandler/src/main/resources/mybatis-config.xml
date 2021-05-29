@@ -6,13 +6,12 @@
 
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <setting name="defaultEnumTypeHandler" value="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     </settings>
     <typeAliases>
-        <typeAlias alias="UserBook" type="com.github.viqbgrg.mybatis.sqlmap.entity.UserBook"/>
+        <typeAlias alias="UserJson" type="com.github.viqbgrg.mybatis.typehandler.entity.UserJson"/>
     </typeAliases>
 
     <mappers>
-        <mapper resource="mapper/UserBookMapper.xml"/>
+        <mapper resource="mapper/UserJsonMapper.xml"/>
     </mappers>
 </configuration>

@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class UserBookMapperTest extends MybatisBaseTest {
+class UserBookMapperTest extends MybatisBaseTest<UserBookMapper> {
     @Test
     void selectAll() {
         UserBookMapper mapper = this.sqlSession.getMapper(UserBookMapper.class);

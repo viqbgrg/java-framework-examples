@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.viqbgrg.mybatis.typehandler.mapper.UserJsonMapper">
+    <resultMap id="userJson" type="UserJson">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+<!--        <result property="book_names" column="book_names" typeHandler="com.github.viqbgrg.mybatis.typehandler.typehandler.JsonTypeHandler"/>-->
+    </resultMap>
+    <insert id="insert">
+        insert into user_json (id, name) values (#{id}, #{name})
+    </insert>
+    <select id="selectAll" resultMap="userJson">
+        select id, name
+        from user_json
+    </select>
+</mapper>
