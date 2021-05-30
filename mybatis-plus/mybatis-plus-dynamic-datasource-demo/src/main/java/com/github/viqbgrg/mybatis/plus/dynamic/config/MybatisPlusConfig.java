@@ -7,15 +7,15 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author hhj
  */
-@Configuration
-public class MybatisPlusConfig {
-    /**
-     * 读写分离
-     *
-     * @return
-     */
-    @Bean
-    public MasterSlaveAutoRoutingPlugin masterSlaveAutoRoutingPlugin() {
-        return new MasterSlaveAutoRoutingPlugin();
-    }
-}
+//@Configuration
+//public class MybatisPlusConfig {
+//    /**
+//     * 读写分离
+//     *
+//     * @return
+//     */
+//    @Bean
+//    public MasterSlaveAutoRoutingPlugin masterSlaveAutoRoutingPlugin() {
+//        return new MasterSlaveAutoRoutingPlugin();
+//    }
+//}

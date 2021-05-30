@@ -3,18 +3,17 @@ spring:
   datasource:
     dynamic:
       primary: master #设置默认的数据源或者数据源组,默认值即为master
-      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      strict: true #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
       datasource:
         master:
-          url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/schema1.sql'\;RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/data1.sql'
+          url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema1.sql'\;RUNSCRIPT FROM 'classpath:data1.sql'
           username:
           password:
           driver-class-name: org.h2.Driver
         slave:
-          #          url: jdbc:h2:mem:test1;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/schema1.sql'\;RUNSCRIPT FROM 'E:/workspaces/java-framework-examples/mybatis-plus/mybatis-plus-dynamic-datasource-demo/src/main/resources/data1.sql';ACCESS_MODE_DATA=r
-          url: jdbc:h2:mem:test11;MODE=MySQL;ACCESS_MODE_DATA=r
-          username:
-          password:
+          url: jdbc:h2:mem:test1;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema2.sql'\;RUNSCRIPT FROM 'classpath:data2.sql'
+          username: GUEST
+          password: 1111
           driver-class-name: org.h2.Driver
 
 #mybatis配置信息
