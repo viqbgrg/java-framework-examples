@@ -6,8 +6,7 @@
     <resultMap id="userJson" type="UserJson">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-<!--        <result property="book_names" column="book_names" javaType="" typeHandler="com.github.viqbgrg.mybatis.typehandler.typehandler.JsonTypeHandler"/>-->
-        <result property="bookNames" column="book_names"/>
+        <result property="bookNames" column="book_names" javaType="java.util.ArrayList" typeHandler="com.github.viqbgrg.mybatis.typehandler.typehandler.JsonTypeHandler"/>
     </resultMap>
     <insert id="insert">
         insert into user_json (id, name, book_names) values (#{id}, #{name}, #{bookNames})

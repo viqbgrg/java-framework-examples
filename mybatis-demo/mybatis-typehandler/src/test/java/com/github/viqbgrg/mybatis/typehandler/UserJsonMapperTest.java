@@ -19,7 +19,7 @@ class UserJsonMapperTest extends MybatisBaseTest<UserJsonMapper> {
         userJson.setId(3);
         userJson.setName("小明");
         String[] bookNames = {"西游记","红楼梦"};
-        userJson.setBookNames(bookNames);
+        userJson.setBookNames(Arrays.asList(bookNames));
         int insert = mapper.insert(userJson);
         assertThat(insert).isGreaterThan(0);
 
@@ -28,7 +28,7 @@ class UserJsonMapperTest extends MybatisBaseTest<UserJsonMapper> {
     @Test
     void selectAll() {
         UserJsonMapper mapper = getMapper();
-        UserJson[] userJsons = mapper.selectAll();
+        List<UserJson> userJsons = mapper.selectAll();
         assertThat(userJsons).isNotEmpty();
     }
 }

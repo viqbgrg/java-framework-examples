@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface UserJsonMapper {
     int insert(UserJson userJson);
-    UserJson[] selectAll();
+    List<UserJson> selectAll();
 }
