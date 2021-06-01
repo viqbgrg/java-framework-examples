@@ -1,0 +1,17 @@
+#mybatis:
+#  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: com.github.viqbgrg.springbootmybatisdemo.domain
+#  type-handlers-package: com.github.viqbgrg.springbootmybatisdemo.typehandler
+spring:
+  h2:
+    console:
+      enabled: true
+#logging:
+#  level:
+#    root: WARN
+#    com:
+#      github:
+#        viqbgrg:
+#          springboot:
+#            h2:
+#              mapper: TRACE
