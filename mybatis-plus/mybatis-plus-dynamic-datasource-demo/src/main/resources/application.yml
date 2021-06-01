@@ -1,4 +1,7 @@
 spring:
+  h2:
+    console:
+      enabled: true
   #数据库信息配置
   datasource:
     dynamic:
@@ -11,9 +14,9 @@ spring:
           password:
           driver-class-name: org.h2.Driver
         slave:
-          url: jdbc:h2:mem:test1;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema2.sql'\;RUNSCRIPT FROM 'classpath:data2.sql'
+          url: jdbc:h2:mem:test
           username: GUEST
-          password: 1111
+          password: abc
           driver-class-name: org.h2.Driver
 
 #mybatis配置信息

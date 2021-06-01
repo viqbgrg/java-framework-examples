@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author hhj
  */
 @SpringBootApplication
-@Slf4j
 public class MybatisPlusDynamicDatasourceDemo {
     public static void main(String[] args) {
         SpringApplication.run(MybatisPlusDynamicDatasourceDemo.class, args);
