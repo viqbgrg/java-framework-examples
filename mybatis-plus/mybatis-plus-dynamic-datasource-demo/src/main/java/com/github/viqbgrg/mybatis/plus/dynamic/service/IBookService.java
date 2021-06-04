@@ -15,4 +15,6 @@ public interface IBookService extends IService<Book> {
     boolean saveOrUpdateBatchDs(ArrayList<Book> books);
 
     boolean saveSlave(Book book);
+
+    void transactional();
 }

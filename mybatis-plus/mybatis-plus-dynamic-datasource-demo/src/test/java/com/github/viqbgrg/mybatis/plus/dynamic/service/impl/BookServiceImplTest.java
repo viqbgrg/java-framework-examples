@@ -21,6 +21,27 @@ class BookServiceImplTest {
 
     @Test
     void saveOrUpdateBatchTest() {
+        List<Book> list = bookService.list();
+        Book book1 = list.get(0);
+        book1.setName("嘿嘿");
+        bookService.updateById(book1);
+        ArrayList<Book> books1 = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Book book = new Book();
+            // 数据库已经存在了二条
+            book.setId(i + 2);
+            book.setName(String.valueOf(i));
+            books1.add(book);
+        }
+        bookService.saveOrUpdateBatch(books1);
+    }
+
+    @Test
+    void transactionalTest() {
+        bookService.transactional();
+    }
+    @Test
+    void saveOrUpdateBatchDsTest() {
         ArrayList<Book> books1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Book book = new Book();
