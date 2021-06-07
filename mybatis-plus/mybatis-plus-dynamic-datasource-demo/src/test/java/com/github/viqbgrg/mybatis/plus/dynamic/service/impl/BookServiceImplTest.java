@@ -21,10 +21,10 @@ class BookServiceImplTest {
 
     @Test
     void saveOrUpdateBatchTest() {
-        List<Book> list = bookService.list();
-        Book book1 = list.get(0);
-        book1.setName("嘿嘿");
-        bookService.updateById(book1);
+//        List<Book> list = bookService.list();
+//        Book book1 = list.get(0);
+//        book1.setName("嘿嘿");
+//        bookService.updateById(book1);
         ArrayList<Book> books1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Book book = new Book();
@@ -33,7 +33,18 @@ class BookServiceImplTest {
             book.setName(String.valueOf(i));
             books1.add(book);
         }
-        bookService.saveOrUpdateBatch(books1);
+        Book book = new Book();
+        // 数据库已经存在了二条
+        book.setId(1);
+        book.setName("11111111111111111111111111111111111111111111111111111111");
+        books1.add(book);
+        try {
+            bookService.saveOrUpdateBatch(books1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        List<Book> list = bookService.list();
+        assertThat(list.size()).isEqualTo(2);
     }
 
     @Test
