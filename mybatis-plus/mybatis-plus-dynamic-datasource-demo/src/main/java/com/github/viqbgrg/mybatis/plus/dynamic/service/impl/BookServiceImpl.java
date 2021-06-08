@@ -1,6 +1,5 @@
 package com.github.viqbgrg.mybatis.plus.dynamic.service.impl;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.dynamic.datasource.annotation.Master;
 import com.baomidou.dynamic.datasource.annotation.Slave;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -8,7 +7,6 @@ import com.github.viqbgrg.mybatis.plus.dynamic.entity.Book;
 import com.github.viqbgrg.mybatis.plus.dynamic.mapper.BookMapper;
 import com.github.viqbgrg.mybatis.plus.dynamic.service.IBookService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +41,6 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public void transactional() {
         ArrayList<Book> books1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -53,8 +50,10 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements IB
             book.setName(String.valueOf(i));
             books1.add(book);
         }
-        int i = 1/0;
         List<Book> list = this.list();
+        List<Book> list1 = this.list();
+        List<Book> list12 = this.list();
+        List<Book> list13 = this.list();
         Book book1 = list.get(0);
         book1.setName("嘿嘿");
         this.updateById(book1);
