@@ -6,10 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -60,4 +57,14 @@ public class HelloWordController {
     public ResponseEntity<Void> file(@RequestPart(value = "文件", required = true) MultipartFile file) {
         return ResponseEntity.ok().build();
     }
+
+
+
+
+    @ApiOperation(value = "测试ApiImplicitParams")
+    @PostMapping(value = "/test4")
+    public ResponseEntity<String> test4(@ApiParam(value = "登陆名") @RequestParam String loginName) {
+        return ResponseEntity.ok("success");
+    }
+
 }
