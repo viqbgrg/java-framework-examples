@@ -6,3 +6,26 @@ CREATE TABLE user_book
     tag  VARCHAR(20) NOT NULL COMMENT '用户id',
     PRIMARY KEY (id,name)
 );
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE user
+(
+    id       BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    name VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
+    PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS book;
+CREATE TABLE book
+(
+    id       BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    book_name VARCHAR(30) NULL DEFAULT NULL COMMENT '书名',
+    PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS user_book_relation;
+CREATE TABLE user_book_relation
+(
+    user_id       BIGINT(20) NOT NULL COMMENT '用户id',
+    book_id BIGINT(20) NOT NULL  COMMENT '书的id'
+);
