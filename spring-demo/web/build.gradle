@@ -2,8 +2,7 @@ plugins {
     id 'war'
 }
 dependencies {
-    compile group: 'org.springframework', name: 'spring-webmvc'
-    providedCompile group: 'javax.servlet', name: 'javax.servlet-api'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 war {
