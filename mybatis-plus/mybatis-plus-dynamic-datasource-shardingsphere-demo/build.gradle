@@ -2,4 +2,5 @@
 
 dependencies {
 	implementation 'org.apache.shardingsphere:shardingsphere-jdbc-core-spring-boot-starter:5.0.0-beta'
+	runtimeOnly 'mysql:mysql-connector-java'
 }
