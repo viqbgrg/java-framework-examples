@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author hhj
  */
 @SpringBootApplication
-public class MybatisPlusDynamicDatasourceDemo {
+public class MybatisPlusShardingsphereDatasourceDemo {
     public static void main(String[] args) {
-        SpringApplication.run(MybatisPlusDynamicDatasourceDemo.class, args);
+        SpringApplication.run(MybatisPlusShardingsphereDatasourceDemo.class, args);
     }
 }

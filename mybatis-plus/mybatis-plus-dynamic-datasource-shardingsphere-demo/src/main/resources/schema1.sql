@@ -3,7 +3,7 @@ GRANT SELECT ON SCHEMA PUBLIC TO GUEST;
 DROP TABLE IF EXISTS book;
 CREATE TABLE book
 (
-    id   BIGINT(20)  NOT NULL COMMENT '主键ID',
-    name varchar(10) not null comment '书名',
+    id   BIGINT(20) NOT NULL COMMENT '主键ID',
+    name JSON       not null comment '书名',
     PRIMARY KEY (id)
 );

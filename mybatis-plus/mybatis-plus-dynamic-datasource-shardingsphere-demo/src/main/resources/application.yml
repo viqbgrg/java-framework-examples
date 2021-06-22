@@ -10,29 +10,30 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
         jdbc-url: jdbc:mysql://127.0.0.1:3306/smart_home_db?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
-        username: write
-        password: 123456
+        username: user_write
+        password: 111111
       slave:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
         jdbc-url: jdbc:mysql://127.0.0.1:3306/smart_home_db?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
-        username: read
-        password: 123456
-      #      common:
-      #        type: com.zaxxer.hikari.HikariDataSource
-      #        driver-class-name: com.mysql.cj.jdbc.Driver
-#      master:
-#        type: com.zaxxer.hikari.HikariDataSource
-#        driver-class-name: org.h2.Driver
-#        jdbc-url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema1.sql'\;RUNSCRIPT FROM 'classpath:data1.sql'
-#        username: write
-#        password: 123456
-#      slave:
-#        type: com.zaxxer.hikari.HikariDataSource
-#        driver-class-name: org.h2.Driver
-#        jdbc-url: jdbc:h2:mem:test
-#        username: GUEST
-#        password: abc
+        username: user_read
+        password: 111111
+    #      common:
+    #        type: com.zaxxer.hikari.HikariDataSource
+    #        driver-class-name: com.mysql.cj.jdbc.Driver
+    #      master:
+    #        type: com.zaxxer.hikari.HikariDataSource
+    #        driver-class-name: org.h2.Driver
+    ##        jdbc-url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema1.sql'\;RUNSCRIPT FROM 'classpath:data1.sql'
+    #        jdbc-url: jdbc:h2:mem:test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;INIT=RUNSCRIPT FROM 'classpath:schema1.sql'
+    #        username: write
+    #        password: 123456
+    #      slave:
+    #        type: com.zaxxer.hikari.HikariDataSource
+    #        driver-class-name: org.h2.Driver
+    #        jdbc-url: jdbc:h2:mem:test
+    #        username: GUEST
+    #        password: abc
     rules:
       readwrite-splitting:
         data-sources:
