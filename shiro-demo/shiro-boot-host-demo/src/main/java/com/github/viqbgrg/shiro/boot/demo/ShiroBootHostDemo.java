@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author hhj
  */
 @SpringBootApplication
-public class ShiroBootDemo {
+public class ShiroBootHostDemo {
     public static void main(String[] args) {
-        SpringApplication.run(ShiroBootDemo.class, args);
+        SpringApplication.run(ShiroBootHostDemo.class, args);
     }
 }
