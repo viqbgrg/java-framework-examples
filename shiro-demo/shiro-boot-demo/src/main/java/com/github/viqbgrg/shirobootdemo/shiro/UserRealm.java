@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 /**
  * @author hhj
  */
-@Component
 @Slf4j
 public class UserRealm extends AuthorizingRealm {
     private IUserService userService;
