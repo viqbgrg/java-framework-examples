@@ -2,7 +2,9 @@ package com.github.viqbgrg.shirobootdemo.controller;
 
 
 import com.github.viqbgrg.shirobootdemo.domain.dto.UserSignInDto;
+import com.github.viqbgrg.shirobootdemo.entity.User;
 import com.github.viqbgrg.shirobootdemo.service.IUserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,19 @@ import javax.validation.Valid;
 @RequestMapping("login")
 public class UserLoginController {
     private IUserService userService;
-    @PostMapping("signIn")
-    public void signIn(@Valid @RequestBody UserSignInDto userSignInDto){
 
+    public UserLoginController(IUserService userService) {
+        this.userService = userService;
+    }
+
+    /**
+     * 用户注册
+     * @param userSignInDto
+     * @return
+     */
+    @PostMapping("signIn")
+    public ResponseEntity<Void> signIn(@Valid @RequestBody UserSignInDto userSignInDto){
+        userService.signIn(userSignInDto);
+        return ResponseEntity.ok().build();
     }
 }
