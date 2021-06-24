@@ -2,7 +2,6 @@ package com.github.viqbgrg.shirobootdemo.controller;
 
 
 import com.github.viqbgrg.shirobootdemo.domain.dto.UserSignInDto;
-import com.github.viqbgrg.shirobootdemo.entity.User;
 import com.github.viqbgrg.shirobootdemo.service.IUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

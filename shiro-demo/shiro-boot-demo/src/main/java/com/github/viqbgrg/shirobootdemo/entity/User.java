@@ -10,8 +10,9 @@ import lombok.Data;
  */
 @Data
 public class User {
-    @TableId(value = "product_id", type = IdType.ASSIGN_ID)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private long id;
     private String email;
     private String password;
+    private Boolean locked;
 }
