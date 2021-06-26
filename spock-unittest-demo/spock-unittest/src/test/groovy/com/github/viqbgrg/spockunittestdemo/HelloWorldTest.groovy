@@ -14,7 +14,7 @@ class HelloWorldTest extends Specification {
         1 | 3 || 4
     }
 
-    def "length of Spock's and his friends' names"() {
+    def "length of Spock's and his friends' names #name"() {
         expect:
         name.size() == length
 
