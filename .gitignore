@@ -15,14 +15,14 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+**/.idea/*
+!**/.idea/dataSources.xml
 *.iws
 *.iml
 *.ipr
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

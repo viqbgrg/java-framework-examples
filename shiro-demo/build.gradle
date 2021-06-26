@@ -12,7 +12,7 @@ plugins {
 group 'com.viqbgrg.github'
 
 subprojects{
-    apply plugin: 'java'
+    apply plugin: "groovy"
     if (!project.name.contains("boot")){
         dependencies {
             implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -36,6 +36,9 @@ subprojects{
             developmentOnly 'org.springframework.boot:spring-boot-devtools'
             annotationProcessor 'org.projectlombok:lombok'
             testImplementation 'org.springframework.boot:spring-boot-starter-test'
+            implementation "org.codehaus.groovy:groovy:3.0.8"
+            testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
+            testImplementation "org.spockframework:spock-core"
         }
     }
 
