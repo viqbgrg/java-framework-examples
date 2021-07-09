@@ -11,7 +11,7 @@ group = 'com.github.viqbgrg'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
-    implementation 'com.github.jsqlparser:jsqlparser:4.0'
+    implementation 'com.github.jsqlparser:jsqlparser:4.1'
 
     implementation "org.codehaus.groovy:groovy:3.0.8"
     testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
