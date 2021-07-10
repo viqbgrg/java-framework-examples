@@ -5,14 +5,18 @@
  * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.0/samples
  */
 plugins{
-    id 'java'
+    id 'groovy'
 }
 group = 'com.github.viqbgrg'
 version = '0.0.1-SNAPSHOT'
+
 dependencies {
-    implementation 'com.github.jsqlparser:jsqlparser:4.0'
-    implementation  'org.junit.jupiter:junit-jupiter-api:5.6.3'
-    runtimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation 'com.github.jsqlparser:jsqlparser:4.1'
+
+    implementation "org.codehaus.groovy:groovy:3.0.8"
+    testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
+    testImplementation "org.spockframework:spock-core"
+
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor  'org.projectlombok:lombok:1.18.16'
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
