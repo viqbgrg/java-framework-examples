@@ -16,3 +16,5 @@ insert into student_book(student_id, book_id)
 values (1, 1);
 insert into student_book(student_id, book_id)
 values (1, 3);
+insert into enum_test(status, type)
+values (0, 'OPEN');

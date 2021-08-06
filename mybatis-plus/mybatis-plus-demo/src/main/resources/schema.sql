@@ -59,5 +59,6 @@ CREATE TABLE student_book
 DROP TABLE IF EXISTS enum_test;
 CREATE TABLE enum_test
 (
-    `status` int(11) DEFAULT NULL COMMENT '项目状态'
+    `status` int(11) DEFAULT NULL COMMENT '项目状态',
+    `type` varchar(11) DEFAULT NULL COMMENT '项目类型'
 );
