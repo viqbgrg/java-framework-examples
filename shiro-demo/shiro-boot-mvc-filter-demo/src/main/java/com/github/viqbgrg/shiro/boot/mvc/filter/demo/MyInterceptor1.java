@@ -1,5 +1,6 @@
 package com.github.viqbgrg.shiro.boot.mvc.filter.demo;
 
+import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -12,14 +13,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author hhj
  */
 @Component
-public class MyInterceptor1 implements HandlerInterceptor {
+public class MyInterceptor1 extends PathMatchingFilter implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler)
             throws Exception {
-        System.out.println("MyInterceptor1 拦截器执行preHandle()方法");
-        return true;
+        String contextPath = request.getContextPath();
+        pathsMatch("/test", request);
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        return false;
     }
 
     @Override
