@@ -16,11 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 public class MyInterceptor1 extends PathMatchingFilter implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-                             Object handler)
-            throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String contextPath = request.getContextPath();
         pathsMatch("/test", request);
+        System.out.println("MyInterceptor1 拦截器执行preHandle方法");
         response.sendError(HttpServletResponse.SC_NOT_FOUND);
         return false;
     }
