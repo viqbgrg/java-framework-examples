@@ -1,5 +1,5 @@
 
 
 dependencies {
-	implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.3.5'
+	implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.4.0'
 }
