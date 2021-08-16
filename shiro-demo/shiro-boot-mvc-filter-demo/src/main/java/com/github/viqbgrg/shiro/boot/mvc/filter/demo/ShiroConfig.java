@@ -10,16 +10,14 @@ import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 import org.apache.shiro.web.mgt.DefaultWebSessionStorageEvaluator;
 import org.apache.shiro.web.servlet.AbstractShiroFilter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author hhj
@@ -54,25 +52,21 @@ public class ShiroConfig {
         ShiroFilterFactoryBean filterFactoryBean = new ShiroFilterFactoryBean();
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         Map<String, Filter> filterMap = filterFactoryBean.getFilters();
-        filterMap.put("shiroFilter", new MyShiroFilter());
-//        filterMap.put("shiroFilter1", new MyShiroFilter1());
+        filterMap.put("myShiroFilter", new MyShiroFilter());
+        filterMap.put("myShiroFilter1", new MyShiroFilter1());
         filterFactoryBean.setSecurityManager(securityManager);
         filterFactoryBean.setFilters(filterMap);
-        filterChainDefinitionMap.put("/**", "shiroFilter");
-//        filterChainDefinitionMap.put("/**", "shiroFilter1");
+        filterChainDefinitionMap.put("/**", "myShiroFilter");
         filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        List<String> globalFilters = new ArrayList<>();
+        globalFilters.add("myShiroFilter1");
+        filterFactoryBean.setGlobalFilters(globalFilters);
         return filterFactoryBean;
     }
 
-//    @Bean
-//    public ShiroFilterChainDefinition shiroFilterChainDefinition() {
-//        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-//
-//        // logged in users with the 'admin' role
-//        chainDefinition.addPathDefinition("/**", "shiroFilter");
-//
-//        return chainDefinition;
-//    }
+
+
+
 
     @Bean
     protected FilterRegistrationBean filterShiroFilterRegistrationBean(ShiroFilterFactoryBean shiroFilterFactoryBean) throws Exception {
@@ -80,7 +74,7 @@ public class ShiroConfig {
         filterRegistrationBean.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ASYNC);
         filterRegistrationBean.setFilter((AbstractShiroFilter) shiroFilterFactoryBean.getObject());
         filterRegistrationBean.setName(FILTER_NAME);
-        filterRegistrationBean.setOrder(0);
+        filterRegistrationBean.setOrder(1);
         return filterRegistrationBean;
     }
 }
