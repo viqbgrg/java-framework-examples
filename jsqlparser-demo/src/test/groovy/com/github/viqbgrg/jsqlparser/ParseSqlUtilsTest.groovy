@@ -43,4 +43,22 @@ class ParseSqlUtilsTest extends Specification {
         expect:
             CCJSqlParserUtil.parse(sql);
     }
+
+    def "子查询"(){
+        def sql = 'SELECT (SELECT COUNT(product_id) FROM design_info WHERE product_removed = \'N\'\n' +
+                '             \n' +
+                '             \n' +
+                '            ) AS designNum,\n' +
+                '               (SELECT COUNT(id) FROM design_project WHERE flag = 0\n' +
+                '         \n' +
+                '         \n' +
+                '        ) AS projectNum,\n' +
+                '               (SELECT COALESCE(SUM(product_price),0.00) FROM design_info WHERE product_removed = \'N\' AND product_status = \'SETTLED\'\n' +
+                '         \n' +
+                '         \n' +
+                '        ) AS totalProductPrice'
+        expect:
+        CCJSqlParserUtil.parse(sql);
+    }
+
 }

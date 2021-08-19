@@ -2,6 +2,7 @@ package com.github.viqbgrg.jsqlparser;
 
 import lombok.extern.slf4j.Slf4j;
 import net.sf.jsqlparser.JSQLParserException;
+import net.sf.jsqlparser.expression.operators.conditional.AndExpression;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.schema.Table;
 import net.sf.jsqlparser.statement.Statement;
@@ -33,6 +34,33 @@ public class ParseSqlUtils {
             mainTableAlias = selectBody.getFromItem().getAlias().getName();
         } catch (Exception e) {
             log.debug("当前sql中， " + mainTable + " 没有设置别名");
+        }
+        return mainTable;
+    }
+
+    public String addWhere(String sql) throws JSQLParserException {
+        String replaceSql = null;
+        Statement statement = CCJSqlParserUtil.parse(sql);
+        Select select = (Select) statement;
+        PlainSelect selectBody = (PlainSelect) select.getSelectBody();
+        String mainTable = null;
+        if (selectBody.getFromItem() instanceof Table) {
+            mainTable = ((Table) selectBody.getFromItem()).getName().replace("`", "");
+        } else if (selectBody.getFromItem() instanceof SubSelect) {
+
+        }
+        String mainTableAlias = mainTable;
+        try {
+            mainTableAlias = selectBody.getFromItem().getAlias().getName();
+        } catch (Exception e) {
+            log.debug("当前sql中， " + mainTable + " 没有设置别名");
+        }
+
+        if (selectBody.getWhere() == null) {
+            selectBody.setWhere(CCJSqlParserUtil.parseCondExpression("a.b = '1'"));
+        } else {
+            AndExpression and = new AndExpression(selectBody.getWhere(), CCJSqlParserUtil.parseCondExpression("a.b = '1'"));
+            selectBody.setWhere(and);
         }
         return mainTable;
     }
