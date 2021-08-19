@@ -46,19 +46,16 @@ class ParseSqlUtilsTest extends Specification {
 
     def "子查询"(){
         def sql = 'SELECT (SELECT COUNT(product_id) FROM design_info WHERE product_removed = \'N\'\n' +
-                '             \n' +
-                '             \n' +
                 '            ) AS designNum,\n' +
                 '               (SELECT COUNT(id) FROM design_project WHERE flag = 0\n' +
-                '         \n' +
-                '         \n' +
-                '        ) AS projectNum,\n' +
-                '               (SELECT COALESCE(SUM(product_price),0.00) FROM design_info WHERE product_removed = \'N\' AND product_status = \'SETTLED\'\n' +
-                '         \n' +
-                '         \n' +
-                '        ) AS totalProductPrice'
+                '        ) AS projectNum, (SELECT COALESCE(SUM(product_price),0.00) FROM design_info WHERE product_removed = \'N\' AND product_status = \'SETTLED\' ) AS totalProductPrice'
+//        def sqlResult = 'SELECT (SELECT COUNT(product_id) FROM design_info WHERE product_removed = \'N\' and a.b = \'1\'\n' +
+//                '            ) AS designNum,\n' +
+//                '               (SELECT COUNT(id) FROM design_project WHERE flag = 0\n' +
+//                '        ) AS projectNum, (SELECT COALESCE(SUM(product_price),0.00) FROM design_info WHERE product_removed = \'N\' AND product_status = \'SETTLED\' ) AS totalProductPrice'
+        def sqlResult = 'SELECT (SELECT COUNT(product_id) FROM design_info WHERE product_removed = \'N\' AND a.b = \'1\') AS designNum, (SELECT COUNT(id) FROM design_project WHERE flag = 0 AND a.b = \'1\') AS projectNum, (SELECT COALESCE(SUM(product_price), 0.00) FROM design_info WHERE product_removed = \'N\' AND product_status = \'SETTLED\' AND a.b = \'1\') AS totalProductPrice'
         expect:
-        CCJSqlParserUtil.parse(sql);
+        sqlResult == ParseSqlUtils.addWhere(sql)
     }
 
 }
