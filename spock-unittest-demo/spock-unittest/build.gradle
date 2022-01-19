@@ -29,3 +29,6 @@ test {
         events "passed", "skipped", "failed"
     }
 }
+// 控制台中文乱码
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
