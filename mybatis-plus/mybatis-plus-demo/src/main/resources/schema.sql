@@ -55,3 +55,10 @@ CREATE TABLE student_book
     student_id BIGINT(20) NOT NULL COMMENT '学生ID',
     book_id    BIGINT(20) not null comment '书id'
 );
+
+DROP TABLE IF EXISTS enum_test;
+CREATE TABLE enum_test
+(
+    `status` int(11) DEFAULT NULL COMMENT '项目状态',
+    `type` varchar(11) DEFAULT NULL COMMENT '项目类型'
+);

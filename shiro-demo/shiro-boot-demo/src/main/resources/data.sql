@@ -4,4 +4,3 @@ values (1, '小明', '123456@qq.com', '$shiro1$SHA-256$500000$0pUW/XLY3ne7IuTjVs
 
 insert into roles(id, role, description, available)
 values ( 1, 'manager', '经理', 1 );
-
