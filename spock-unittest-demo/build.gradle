@@ -21,7 +21,11 @@ subprojects {
             implementation "org.codehaus.groovy:groovy:3.0.8"
             testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
             testImplementation "org.spockframework:spock-core"
+            compileOnly 'org.projectlombok:lombok:1.18.22'
+            annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
+            testCompileOnly 'org.projectlombok:lombok:1.18.22'
+            testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
             // optional dependencies for using Spock
             testImplementation "org.hamcrest:hamcrest-core:2.2"   // only necessary if Hamcrest matchers are used
             testRuntimeOnly "net.bytebuddy:byte-buddy:1.11.0" // allows mocking of classes (in addition to interfaces)
