@@ -15,4 +15,11 @@ class MockDataTest extends Specification {
         personList.size() == 1
         personList[0].getUsername() == "小明"
     }
+
+    def "list data"() {
+        given:
+        ArrayList<Person> personList = Stub{size() >> 3}
+        expect:
+        personList.size() == 3
+    }
 }
