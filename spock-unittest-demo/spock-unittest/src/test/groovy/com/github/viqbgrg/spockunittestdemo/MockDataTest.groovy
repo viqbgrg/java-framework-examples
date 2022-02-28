@@ -22,4 +22,17 @@ class MockDataTest extends Specification {
         expect:
         personList.size() == 3
     }
+
+    def "data"() {
+        given:
+        Person person = Stub{
+            getUsername() >> "小明"
+        }
+        def personList = new ArrayList<Person>()
+        personList << person
+        expect:
+        person.getUsername() == "小明"
+        personList.size() == 1
+        personList[0].getUsername() == "小明"
+    }
 }
