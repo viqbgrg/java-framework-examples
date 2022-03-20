@@ -21,4 +21,15 @@ class MockAndTest extends Specification {
         then:
         person.getUsername() == "哈哈"
     }
+
+    def "返回不同的值"() {
+        given:
+        def person = Mock(Person)
+        person.getUsername() >>> ["小明","小红"]
+        expect:
+        person.getUsername() == "小明"
+        and: "第二次调用"
+        person.getUsername() == "小红"
+
+    }
 }
