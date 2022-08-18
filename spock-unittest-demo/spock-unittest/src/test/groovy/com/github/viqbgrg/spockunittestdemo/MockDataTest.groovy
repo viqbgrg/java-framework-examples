@@ -1,5 +1,6 @@
 package com.github.viqbgrg.spockunittestdemo
 
+import com.github.viqbgrg.spockunittestdemo.entity.B
 import com.github.viqbgrg.spockunittestdemo.entity.Person
 import spock.lang.Specification
 
@@ -34,5 +35,23 @@ class MockDataTest extends Specification {
         person.getUsername() == "小明"
         personList.size() == 1
         personList[0].getUsername() == "小明"
+    }
+
+    def "stub"() {
+        given:
+        def stub = Stub(Person) {
+            getUsername() >> "小明"
+        }
+        expect:
+        stub.getUsername() == "小明"
+    }
+
+    def "mock 泛型"() {
+        given:
+        def b = Stub(B){
+            getItem() >> "你好"
+        }
+        expect:
+        b.getItem() == "你好"
     }
 }
