@@ -1,0 +1,12 @@
+plugins {
+    id 'groovy'
+}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.ehcache:ehcache'
+    testImplementation 'org.spockframework:spock-spring:2.2-groovy-3.0'
+}
+
+repositories {
+    mavenCentral()
+}
