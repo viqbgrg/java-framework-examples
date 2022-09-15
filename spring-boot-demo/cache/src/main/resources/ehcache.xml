@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ehcache:config
+<config
         xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-        xmlns:ehcache='http://www.ehcache.org/v3'
+        xmlns='http://www.ehcache.org/v3'
         xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.1.xsd">
-
-    <ehcache:cache alias="test">
-        <ehcache:key-type>java.lang.Long</ehcache:key-type>
-        <ehcache:value-type>java.lang.String</ehcache:value-type>
-        <ehcache:resources>
-            <ehcache:heap unit="entries">100</ehcache:heap>
-            <ehcache:offheap unit="MB">1</ehcache:offheap>
-        </ehcache:resources>
-    </ehcache:cache>
-</ehcache:config>
+    <persistence directory="${user.home}/cache-data"/>
+    <cache alias="test">
+        <key-type>java.lang.Long</key-type>
+        <value-type>java.lang.String</value-type>
+        <resources>
+            <disk unit="MB" persistent="true">500</disk>
+        </resources>
+    </cache>
+</config>

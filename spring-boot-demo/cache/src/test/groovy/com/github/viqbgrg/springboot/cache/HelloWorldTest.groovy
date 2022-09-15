@@ -23,6 +23,6 @@ class HelloWorldTest extends spock.lang.Specification {
         helloWorld.longToString(value)
         helloWorld.longToString(value)
         then:
-        1 * dataService.longToString(value)
+        0 * dataService.longToString(value)
     }
 }
