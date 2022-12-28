@@ -1,10 +1,10 @@
-package com.github.viqbgrg.springnativedemo;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringNativeDemoApplicationTests {
+class NativeApplicationTests {
 
 	@Test
 	void contextLoads() {
