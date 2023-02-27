@@ -1,14 +1,13 @@
-package com.github.viqbgrg.springboot.cache
+package com.github.viqbgrg.springboot.cache.service
 
-import com.github.viqbgrg.springboot.cache.service.DataService
-import com.github.viqbgrg.springboot.cache.service.HelloWorld
+import com.github.viqbgrg.springboot.cache.CacheApplication
 import org.spockframework.spring.SpringSpy
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 import javax.cache.CacheManager
 
-@SpringBootTest
+@SpringBootTest(classes = CacheApplication)
 class HelloWorldTest extends spock.lang.Specification {
 
     @SpringSpy
@@ -28,8 +27,15 @@ class HelloWorldTest extends spock.lang.Specification {
         helloWorld.longToString(value)
         helloWorld.longToString(value)
         then:
-        0 * dataService.longToString(value)
+        1 * dataService.longToString(value)
     }
+
+    def cleanup() {
+        expect:
+        def cache = cacheManager.getCache("test", Long.class, String.class)
+        cache.clear()
+    }
+
 
     def cacheManagerTest() {
         expect:
