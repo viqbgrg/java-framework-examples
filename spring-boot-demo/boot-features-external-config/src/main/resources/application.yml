@@ -20,7 +20,9 @@ acme-bean:
 
 test-string:
   value: hello
-
+user:
+  a: test
+  b: 22
 value:
   name: haha
   size: 18

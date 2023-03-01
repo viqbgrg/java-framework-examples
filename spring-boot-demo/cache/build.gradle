@@ -4,7 +4,6 @@ plugins {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-cache'
     implementation 'org.ehcache:ehcache:3.10.8:jakarta'
-    testImplementation 'org.spockframework:spock-spring:2.4-M1-groovy-4.0'
 
 }
 
