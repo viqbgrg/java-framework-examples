@@ -3,13 +3,24 @@ package com.github.viqbgrg.spingdocdemo.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+import java.util.HashMap;
+
 @Data
-@Schema(name = "Result",description = "API响应实体")
 public class Result<T> {
     @Schema(description = "响应Code")
-    private int code;
+    private Integer code;
     @Schema(description = "响应描述")
     private String msg;
     @Schema(description = "响应内容")
     private T data;
+
+
+    public Result() {
+    }
+
+    protected Result(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
 }
