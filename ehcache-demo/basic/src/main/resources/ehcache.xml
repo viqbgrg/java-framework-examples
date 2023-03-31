@@ -9,8 +9,20 @@
         <ehcache:key-type>java.lang.Long</ehcache:key-type>
         <ehcache:value-type>java.lang.String</ehcache:value-type>
         <ehcache:resources>
-            <ehcache:heap unit="entries">100</ehcache:heap>
-            <ehcache:offheap unit="MB">1</ehcache:offheap>
+            <ehcache:offheap unit="MB">2</ehcache:offheap>
         </ehcache:resources>
+    </ehcache:cache>
+
+    <ehcache:cache-template name="myTemplate">
+        <ehcache:key-type>java.lang.Long</ehcache:key-type>
+        <ehcache:value-type>java.lang.String</ehcache:value-type>
+        <ehcache:resources>
+            <ehcache:offheap unit="MB">2</ehcache:offheap>
+        </ehcache:resources>
+    </ehcache:cache-template>
+
+    <ehcache:cache alias="listCache" uses-template="myTemplate">
+        <ehcache:key-type>java.lang.String</ehcache:key-type>
+        <ehcache:value-type>java.lang.String</ehcache:value-type>
     </ehcache:cache>
 </ehcache:config>
