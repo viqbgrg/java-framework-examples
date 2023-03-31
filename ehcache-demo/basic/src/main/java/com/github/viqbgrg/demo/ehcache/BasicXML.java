@@ -16,10 +16,9 @@ public class BasicXML {
     public CacheManager getCacheManager() {
         log.info("Creating cache manager via XML resource");
         Configuration xmlConfig = new XmlConfiguration(BasicXML.class.getResource("/ehcache.xml"));
-        try (CacheManager cacheManager = newCacheManager(xmlConfig)) {
-            cacheManager.init();
-            return cacheManager;
-        }
+        CacheManager cacheManager = newCacheManager(xmlConfig);
+        cacheManager.init();
+        return cacheManager;
     }
 
     public Cache<Long, String> getCache(CacheManager cacheManager) {
