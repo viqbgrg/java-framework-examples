@@ -19,16 +19,29 @@ class BasicXMLTest extends Specification {
         manager != null
     }
 
+    def "stringTest"() {
+        given:
+        def cache = manager.getCache("basicCache", Long.class, String.class)
+        when:
+        cache.put(1L, "b")
+        then:
+        def get = cache.get(1L)
+        get != null
+        get == "b"
+    }
+
     def "arrayListTest"() {
         given:
-        def cache = manager.getCache("listCache", String.class, String.class)
+        def cache = manager.getCache("listCache", String.class, ArrayList<String>.class)
         when:
-        Arrays.asList("a", "b")
-        cache.put("test", "b")
+        def list = new ArrayList<String>()
+        list.add("a")
+        list.add("b")
+        cache.put("test", list)
         then:
         def get = cache.get("test")
         get != null
-        get == "b"
+        get.size() == 2
     }
 
     def cleanupSpec() {
