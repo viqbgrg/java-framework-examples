@@ -10,10 +10,12 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
+
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
     implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+    implementation 'org.glassfish.expressly:expressly:5.0.0'
 
+    testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
