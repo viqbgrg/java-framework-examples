@@ -9,6 +9,14 @@ import org.apache.ibatis.mapping.SqlSource;
  * @author hhj
  */
 public class MysqlInsertQueryBatch extends AbstractMethod {
+    /**
+     * @param methodName 方法名
+     * @since 3.5.0
+     */
+    protected MysqlInsertQueryBatch(String methodName) {
+        super(methodName);
+    }
+
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, Class<?> modelClass, TableInfo tableInfo) {
         String sql = "select * from " + tableInfo.getTableName();

@@ -10,6 +10,7 @@ repositories {
 	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 	mavenCentral()
 }
+
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'org.springframework.boot'
@@ -19,6 +20,10 @@ subprojects {
 			extendsFrom annotationProcessor
 		}
 	}
+
+	ext {
+		mybatisPlusVersion = "3.5.3.1"
+	}
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter-web'
 		implementation 'org.springframework.boot:spring-boot-starter'
@@ -26,10 +31,10 @@ subprojects {
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'
 		runtimeOnly 'com.h2database:h2'
 		annotationProcessor 'org.projectlombok:lombok'
-		implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
+		implementation "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
 		implementation 'org.freemarker:freemarker:2.3.31'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
-		testImplementation 'com.baomidou:mybatis-plus-boot-starter-test:3.5.3.1'
+		testImplementation "com.baomidou:mybatis-plus-boot-starter-test:${mybatisPlusVersion}"
 	}
 
 	test {

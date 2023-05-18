@@ -1,10 +1,6 @@
 package com.github.viqbgrg.mybatisplus.injectordemo;
 
-import com.baomidou.mybatisplus.core.injector.AbstractMethod;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
-import com.github.viqbgrg.mybatisplus.injectordemo.methods.MysqlInsertQueryBatch;
-
-import java.util.List;
 
 /**
  * 自定义 SqlInjector
@@ -20,10 +16,5 @@ public class MyLogicSqlInjector extends DefaultSqlInjector {
      *
      * @return
      */
-    @Override
-    public List<AbstractMethod> getMethodList(Class<?> mapperClass) {
-        List<AbstractMethod> methodList = super.getMethodList(mapperClass);
-        methodList.add(new MysqlInsertQueryBatch());
-        return methodList;
-    }
+
 }
