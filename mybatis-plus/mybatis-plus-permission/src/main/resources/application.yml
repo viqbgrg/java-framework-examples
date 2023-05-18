@@ -1,0 +1,4 @@
+#mybatis配置信息
+mybatis-plus:
+  #对应mapper路劲
+  mapper-locations: classpath:mapper/*.xml
