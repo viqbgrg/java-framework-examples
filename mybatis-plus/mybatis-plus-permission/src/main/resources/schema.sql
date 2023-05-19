@@ -4,6 +4,7 @@ create table student
     id       BIGINT(20) not null comment '主键ID',
     name     varchar(20) comment '姓名',
     class_id BIGINT(20) comment '班级id',
+    grade  BIGINT(20) comment '年级',
     primary key (id)
 );
 

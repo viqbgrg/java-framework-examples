@@ -8,23 +8,14 @@ import com.github.viqbgrg.mybatisplus.permission.annotation.Permission;
 import lombok.Data;
 
 @Data
-public class Student {
+public class TClass {
     /**
      * 主键ID
      */
     @TableId(value = "id", type = IdType.INPUT)
     private Long id;
-
-    /**
-     * 姓名
-     */
-    private String name;
-    @Permission(PermissionType.GRADE)
+    @Permission(value = PermissionType.GRADE)
     private Integer grade;
 
-    @Permission(PermissionType.CLASS)
-    private Long classId;
-
-    @TableField(exist = false)
     private String className;
 }

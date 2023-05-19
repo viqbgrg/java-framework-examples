@@ -21,4 +21,9 @@ class StudentServiceTest {
         assertEquals(list.size(), 2);
     }
 
+    @Test
+    void getStudentByName() {
+        List<Student> list = studentService.getStudentByName();
+        assertEquals(list.size(), 2);
+    }
 }
