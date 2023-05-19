@@ -1,20 +1,13 @@
-insert into user(id, username, email, password, locked, create_at, update_at)
-values (1, 'username', '123456@qq.com',
-        '$shiro1$SHA-256$500000$Rn/qgay6R3wBGQOnPpJFIg==$h8ReDeaI/qNHIMw4Hdeg5fCT205e9lg0bDCTxWiJbWQ=', 1,
-        '2020-12-27 23:05:47', '2020-12-27 23:05:51');
-insert
-into student(id, name)
-values (1, 'xiaoming');
-insert into book(id, name)
-values (1, '西游记');
-insert into book(id, name)
-values (2, '红楼梦');
-insert into book(id, name)
-values (3, '水浒传');
+insert into student (id, name, class_id)
+values (1, '小明', 2);
+insert into student (id, name, class_id)
+values (2, '张三', 2);
+insert into student (id, name, class_id)
+values (3, '李四', 3);
 
-insert into student_book(student_id, book_id)
-values (1, 1);
-insert into student_book(student_id, book_id)
-values (1, 3);
-insert into enum_test(status, type)
-values (0, 'OPEN');
+insert into t_class (id, class_name)
+values (1, '1班');
+insert into t_class (id, class_name)
+values (2, '2班');
+insert into t_class (id, class_name)
+values (3, '3班');

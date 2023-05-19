@@ -1,19 +1,22 @@
 package com.github.viqbgrg.mybatisplus.permission.config;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.github.viqbgrg.mybatisplus.permission.mybatis.MyDataPermissionHandler;
+import com.github.viqbgrg.mybatisplus.permission.mybatis.MyDataPermissionInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.baomidou.mybatisplus.samples.mysql.mapper")
+@MapperScan("com.github.viqbgrg.mybatisplus.permission.mapper")
 public class MybatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        MyDataPermissionInterceptor myDataPermissionInterceptor = new MyDataPermissionInterceptor();
+        MyDataPermissionHandler myDataPermissionHandler = new MyDataPermissionHandler();
+        myDataPermissionInterceptor.setDataPermissionHandler(myDataPermissionHandler);
+        interceptor.addInnerInterceptor(myDataPermissionInterceptor);
         return interceptor;
     }
 
