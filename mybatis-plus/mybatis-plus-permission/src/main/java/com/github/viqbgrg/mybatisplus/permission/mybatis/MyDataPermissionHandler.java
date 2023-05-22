@@ -3,7 +3,6 @@ package com.github.viqbgrg.mybatisplus.permission.mybatis;
 import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfo;
 import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
-import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.extension.plugins.handler.MultiDataPermissionHandler;
 import com.github.viqbgrg.mybatisplus.permission.PermissionType;
 import com.github.viqbgrg.mybatisplus.permission.annotation.Permission;
@@ -11,7 +10,6 @@ import net.sf.jsqlparser.expression.Alias;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
 import net.sf.jsqlparser.expression.Parenthesis;
-import net.sf.jsqlparser.expression.operators.conditional.AndExpression;
 import net.sf.jsqlparser.expression.operators.relational.ExpressionList;
 import net.sf.jsqlparser.expression.operators.relational.InExpression;
 import net.sf.jsqlparser.expression.operators.relational.ItemsList;
@@ -72,6 +70,6 @@ public class MyDataPermissionHandler implements MultiDataPermissionHandler {
         inExpression.setLeftExpression(new Column(s));
         ItemsList itemsList = new ExpressionList(new LongValue(2));
         inExpression.setRightItemsList(itemsList);
-        return ObjectUtils.isNotEmpty(where) ? new AndExpression(where, new Parenthesis(inExpression)) : where;
+        return new Parenthesis(inExpression);
     }
 }

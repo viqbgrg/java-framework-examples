@@ -13,5 +13,6 @@ create table t_class
 (
     id         bigint(20) not null,
     class_name varchar(20),
+    grade      BIGINT(20) comment '年级',
     primary key (id)
 )
