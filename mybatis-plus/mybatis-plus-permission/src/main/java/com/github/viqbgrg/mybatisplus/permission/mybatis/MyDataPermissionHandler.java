@@ -18,6 +18,7 @@ import net.sf.jsqlparser.schema.Table;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,8 @@ public class MyDataPermissionHandler implements MultiDataPermissionHandler {
             }
             PERMISSION_INFO_CACHE.put(tableName, result);
         }
-        String s = result.get(PermissionType.GRADE);
+        Map.Entry<PermissionType, String> permissionTypeStringEntry = result.entrySet().stream().sorted(Comparator.comparingInt(a -> a.getKey().ordinal())).findFirst().get();
+        String s = permissionTypeStringEntry.getValue();
         if (!StringUtils.hasText(s)) {
             return null;
         }
