@@ -6,6 +6,6 @@ import jakarta.jws.WebService;
 
 @WebService
 public interface HelloWorld {
-    @WebMethod(operationName = "getHello", action = "bbbb")
+    @WebMethod(operationName = "getHello")
     String sayHi(String text);
 }
