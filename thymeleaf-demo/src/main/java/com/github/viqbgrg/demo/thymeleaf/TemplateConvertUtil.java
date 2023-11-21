@@ -19,9 +19,7 @@ import java.util.Map;
  */
 public class TemplateConvertUtil {
 
-    private static String STATIC_TEMPLATE_PREFIX = "classpath:template/";
     private static String STATIC_TEMPLATE_SUFFIX = ".html";
-    private static String SCRATCH_FILE_CATALOG = "scratch";
 
 
     /**
@@ -32,7 +30,6 @@ public class TemplateConvertUtil {
         String result = null;
 
             ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
-            resolver.setPrefix(STATIC_TEMPLATE_PREFIX);//模板所在目录，相对于当前classloader的classpath。
             resolver.setSuffix(STATIC_TEMPLATE_SUFFIX);//模板文件后缀
             TemplateEngine templateEngine = new TemplateEngine();
             templateEngine.setTemplateResolver(resolver);
@@ -49,10 +46,9 @@ public class TemplateConvertUtil {
             });
             // 将数据装进模板生成新的HTML
             StringWriter stringWriter = new StringWriter();
-            templateEngine.process(templateName, context, stringWriter);
-            result = stringWriter.toString();
+        String process = templateEngine.process(templateName, context);
 
-        return result;
+        return process;
     }
 
     public static String toHtmlString(File file) {
