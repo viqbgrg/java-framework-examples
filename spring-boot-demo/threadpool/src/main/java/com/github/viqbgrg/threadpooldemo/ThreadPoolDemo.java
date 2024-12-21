@@ -1,11 +1,11 @@
-package com.github.viqbgrg.logging;
+package com.github.viqbgrg.threadpooldemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyApplication {
+public class ThreadPoolDemo {
     public static void main(String[] args) {
-        SpringApplication.run(MyApplication.class, args);
+        SpringApplication.run(ThreadPoolDemo.class, args);
     }
 }
